@@ -49,7 +49,6 @@ nav.navbar {
 }
 .card {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
-  margin-bottom: 2rem;
 }
 .card-header-title {
   color: #8F99A3;
@@ -61,14 +60,6 @@ nav.navbar {
 .info-tiles .subtitle {
   font-weight: 300;
   color: #8F99A3;
-}
-.hero.welcome.is-info {
-  background: #36D1DC;
-  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-  background: linear-gradient(to right, #5B86E5, #36D1DC);
-}
-.hero.welcome .title, .hero.welcome .subtitle {
-  color: hsl(192, 17%, 99%);
 }
 .card .content {
   font-size: 14px;
@@ -98,36 +89,50 @@ nav.navbar {
     line-height: 2;
     font-size: 14px;
 }
-.nowPlaying {
+.nowPlaying, .selectedSpeaker {
     font-weight: 700;
 }
 .slider {
     padding-left: 1em;
-    width: 40%;
+    width: 45%;
 }
 .clicked {
     background-color: rgba(21, 197, 209, 0.97);
 }
-.radiochannels {
-    padding-right: 0;
-}
-.intercom {
-    margin-left: .9em;
-    padding-right: 1px;
+.speakers-select {
+    display: none;
 }
 
 /*fixes for mobile view*/
 @media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
+  and (min-device-width: 200px) 
+  and (max-device-width: 767px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
+      .navbar-burger {
+          margin-left: -2em;
+          margin-top: .5em;
+      }
+      .navbar-menu {
+          padding-left: .5em;
+      }
+      .hide-when-mobile {
+          display: none;
+      }
+      .speakers-select {
+          margin-bottom: 1em;
+      }
+      .show-when-mobile {
+        display: block;
+      }
+      .navbar-burger {
+          background-color: #fff;
+      }
       .columns {
-          margin-left: .75em;
+          margin-left: .1em;
       }
       .intercom, .radiochannels {
           padding-right: 1em;
-          margin-left: -1.5em;
       }
       .navbar-item.brand-text {
         font-size: 14px;

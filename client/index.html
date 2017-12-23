@@ -24,19 +24,38 @@
         <a class="navbar-item brand-text" href="index.html">
             <img src="bose_logo.png"/>@kdw2060's alternative Soundtouch Interface
         </a>
-        <div class="navbar-burger burger" data-target="navMenu">
-        <!--todo: put rooms and users menu here when mobile-->
+        <button class="button navbar-burger" data-target="navMenu" id="burger">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
+    <div class="navbar-menu" id="navMenu">
+            <p class="menu-label">Rooms</p>
+            <ul class="menu-list">
+            <li ><a class="is-active">All speakers</a></li>
+<!--Room selection not in use for the moment, might develop in the future.-->
+            <li><a>Kitchen</a></li>
+            <li><a>Bathroom</a></li>
+            <li><a>Marieke's room</a></li>
+            <li><a>Kris's room</a></li>
+<!-- example of grouped speakers
+            <li>
+              <a>Living room</a>
+              <ul>
+                <li><a>Front window</a></li>
+                <li><a>Back window</a></li>
+              </ul>
+            </li>
+-->
+          </ul>
+        </div>
     </div>
   </nav>
   <!-- END NAV -->
   <div class="container">
     <div class="columns">
-      <div class="column is-3">
+      <div class="column is-3 hide-when-mobile">
         <aside class="menu">
           <p class="menu-label">
             Rooms
@@ -68,8 +87,8 @@
           </ul>
         </aside>
       </div>
-      <div class="column is-9">
-        <section class="info-tiles">
+      <div class="column is-9-desktop">
+          <section class="info-tiles hide-when-mobile">
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box" onclick="setSpeaker('SoundTouch 10Keuken', this)">
@@ -97,22 +116,34 @@
             </div>
           </div>
         </section>
+        <section class="speakers-select show-when-mobile">
+            <div class="field">
+                <label class="label">Choose a speaker</label>
+                <div class="select is-info is-medium">
+                    <select onchange="setSpeakerViaSelect(event)">
+                        <option value='SoundTouch 10Keuken'>Kitchen speaker</option>
+                        <option value='SoundTouch10Badkamer'>Bathroom speaker</option>
+                        <option value='SoundTouch10Marieke'>Marieke's speaker</option>
+                        <option value='SoundTouch10Kris'>Kris's speaker</option>
+                    </select>
+                </div>
+            </div>
+        </section>
         <section class="card currentlyPlaying">
+                <p class="currentSpeaker"></p>
                 <p class="currentChannel"></p>
                 <p><span class="currentVolume"></span><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider"></p>
         </section>
+        </div>
+      </div>
         <div class="columns">
-          <div class="column is-6 radiochannels">
+            <div class="column is-3-desktop hide-when-mobile"></div>
+          <div class="column is-5 radiochannels">
             <div class="card events-card">
               <header class="card-header">
                 <p class="card-header-title">
                   Radio channels
                 </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
               </header>
 <!--Find radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp-->
               <div class="card-table channelList">
@@ -173,7 +204,7 @@
               </footer>
             </div>        
           </div>
-          <div class="column is-6 intercom">
+          <div class="column intercom">
             <div class="card events-card">
               <header class="card-header">
                 <p class="card-header-title">
@@ -213,7 +244,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+     <!--end of columns div was here-->
 </body>
 </html>
