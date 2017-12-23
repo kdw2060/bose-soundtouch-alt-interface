@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "bulma-slider",
+        "scope": null,
+        "escapedName": "bulma-slider",
+        "name": "bulma-slider",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\OneDrive\\Documenten\\WebDevelopment\\Persoonlijk\\Bose-Alt-Interface"
+    ]
+  ],
+  "_from": "bulma-slider@latest",
+  "_id": "bulma-slider@0.1.0",
+  "_inCache": true,
+  "_location": "/bulma-slider",
+  "_nodeVersion": "6.9.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/bulma-slider-0.1.0.tgz_1511953829072_0.1964434019755572"
+  },
+  "_npmUser": {
+    "name": "wikiki",
+    "email": "wikiki@protonmail.com"
+  },
+  "_npmVersion": "3.10.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "bulma-slider",
+    "scope": null,
+    "escapedName": "bulma-slider",
+    "name": "bulma-slider",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bulma-slider/-/bulma-slider-0.1.0.tgz",
+  "_shasum": "a7d9e8ddfb37e3f6c75bb57f2604d03c2c724acf",
+  "_shrinkwrap": null,
+  "_spec": "bulma-slider",
+  "_where": "D:\\OneDrive\\Documenten\\WebDevelopment\\Persoonlijk\\Bose-Alt-Interface",
+  "author": {
+    "name": "Wikiki",
+    "email": "wikiki@protonmail.com",
+    "url": "https://wikiki.github.io/bulma-extensions/overview"
+  },
+  "bugs": {
+    "url": "https://github.com/Wikiki/bulma-slider/issues"
+  },
+  "dependencies": {},
+  "description": "Display classic slider more sexy, in different colors, sizes, and states ",
+  "devDependencies": {
+    "bulma": "^0.6.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "a7d9e8ddfb37e3f6c75bb57f2604d03c2c724acf",
+    "tarball": "https://registry.npmjs.org/bulma-slider/-/bulma-slider-0.1.0.tgz"
+  },
+  "files": [
+    "slider.sass",
+    "bulma-slider.css",
+    "bulma-slider.min.css",
+    "slider.js",
+    "slider.min.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "homepage": "https://github.com/Wikiki/bulma-slider#readme",
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "bulma.io",
+    "extensions",
+    "slider"
+  ],
+  "license": "MIT",
+  "main": "slider.sass",
+  "maintainers": [
+    {
+      "name": "wikiki",
+      "email": "wikiki@protonmail.com"
+    }
+  ],
+  "name": "bulma-slider",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wikiki/bulma-slider.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0"
+}
