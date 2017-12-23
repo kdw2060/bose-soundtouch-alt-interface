@@ -9,7 +9,7 @@ This web-app doesn't feature all SoundTouch functions, I just wanted to build so
 
 At the moment it only works if you run it locally on your pc.
 
-[![Desktop lay-out](screenshots/myAppDesktop.png)]
+![Desktop lay-out](screenshots/myAppDesktop.png)
 
 ## Installation and configuration
 
