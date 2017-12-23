@@ -9,12 +9,13 @@ This web-app doesn't feature all SoundTouch functions, I just wanted to build so
 
 At the moment it only works if you run it locally on your pc.
 
+[![Desktop lay-out](screenshots/myAppDesktop.png)]
 
 ## Installation and configuration
 
 1. Download or fork this project
-2. Edit the speaker array and the discovery-function in `server.js` to match your speaker Lay-out. Use the exact names you gave them when you configured them.
-3. Only if you want to use the intercom functionality 
+2. Edit the speaker array and the discovery-function in `server.js` to match your speaker lay-out. Use the exact names you gave them when you configured them.
+3. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
     - enter your key on line 5 in `scripts.js`
 
@@ -28,7 +29,7 @@ Wanna help out with this project? Here are some To Do's:
 
 **Make it work on any webserver**
 
-At the moment the app only works when running it locally on your pc. I want to install it on a local webserver though so I can access it form my phone. My personal options for running the node server arre either on my NAS or a Raspberry Pi running Hass.io --> I could really use some help with this part. The `config.json` is an early attempt at turning it into a Hass.io addon, but I'm still figuring that stuff out.
+At the moment the app only works when running it locally on your pc. I want to install it on a permanently running webserver though so I can access it form my phone. My personal options for running the node server are either my NAS or a Raspberry Pi running Hass.io --> I could really use some help with this part. The `config.json` is an early attempt at turning it into a Hass.io addon, but I'm still figuring that stuff out.
 
 **Polish**
 - add error handling where missing

@@ -104,6 +104,10 @@ nav.navbar {
 }
 
 /*fixes for mobile view*/
+.navbar-menu {
+    display: none;
+}
+
 @media only screen 
   and (min-device-width: 200px) 
   and (max-device-width: 767px)
