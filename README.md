@@ -23,7 +23,7 @@ At the moment it only works if you run it locally on your pc.
 6. Run `node server.js` and point your browser to localhost:3000
 
 
-## (#Still-to-come)
+## Still to come
 
 Wanna help out with this project? Here are some To Do's:
 
