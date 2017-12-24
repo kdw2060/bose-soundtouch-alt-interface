@@ -1,7 +1,7 @@
 # My Personal Bose SoundTouch App
 
 
-WORK IN PROGRESS - [HELP WELCOME](#Still-to-come)
+WORK IN PROGRESS - [HELP WELCOME](#still-to-come)
 
 This web-app doesn't feature all SoundTouch functions, I just wanted to build something with two features that I was missing in the official app:
 - the ability to store more than 6 radio presets 
