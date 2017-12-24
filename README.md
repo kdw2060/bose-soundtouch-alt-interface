@@ -1,10 +1,10 @@
 # My Personal Bose SoundTouch App
 
 
-WORK IN PROGRESS - NOT FINISHED - HELP WELCOME
+WORK IN PROGRESS - [HELP WELCOME](#Still-to-come)
 
 This web-app doesn't feature all SoundTouch functions, I just wanted to build something with two features that I was missing in the official app:
-- store more than 6 radio presets 
+- the ability to store more than 6 radio presets 
 - the ability to use the speakers as an intercom
 
 At the moment it only works if you run it locally on your pc.
@@ -23,7 +23,7 @@ At the moment it only works if you run it locally on your pc.
 6. Run `node server.js` and point your browser to localhost:3000
 
 
-## Still to come
+## (#Still-to-come)
 
 Wanna help out with this project? Here are some To Do's:
 
@@ -41,7 +41,7 @@ At the moment the app only works when running it locally on your pc. I want to i
 - add the option to record a sound clip and send this over the intercom
 
 
-### Some Credits
+## Some Credits
 
 Learn more about the Bose Soundtouch API @ https://developer.bose.com/soundtouch-control-api/apis
 
