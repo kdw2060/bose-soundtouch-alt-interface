@@ -3,7 +3,6 @@
       "version": "0.5",
       "slug": "MyBoseApp",
       "description": "",
-      "webui": "http://[HOST]:[PORT:10080]", 
       "startup": "before",
       "boot": "auto",
       "ports": {

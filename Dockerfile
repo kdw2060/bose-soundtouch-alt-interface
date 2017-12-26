@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 FROM node:carbon
 
-WORKDIR /usr/src/MyBoseApp
+WORKDIR /usr/src/my_bose_app
 
 ENV LANG C.UTF-8
 
