@@ -1,7 +1,7 @@
  {
       "name": "MyBoseApp",
       "version": "0.5",
-      "slug": "MyBoseApp",
+      "slug": "my-bose-app",
       "description": "",
       "startup": "before",
       "boot": "auto",

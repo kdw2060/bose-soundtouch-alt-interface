@@ -29,7 +29,8 @@ Wanna help out with this project? Here are some To Do's:
 
 **Make it work on any webserver**
 
-At the moment the app only works when running it locally on your pc. I want to install it on a permanently running webserver though so I can access it form my phone. My personal options for running the node server are either my QNAP NAS or a Raspberry Pi running Hass.io --> I could really use some help with this part. The `config.json` is an early attempt at turning it into a Hass.io addon, but I'm still figuring that stuff out.
+At the moment the app only works when running it locally on your pc. I want to install it on a permanently running webserver though so I can access it form my phone. 
+I want to make a Hass.io addon out of it because I already have a Raspberry Pi running Hass.io --> I could really use some help with this part. The project includes `Dockerfile`, `config.json` and `run.sh` files to this end, but I'm still figuring that stuff out and couldn't get it working so far.
 
 **Polish**
 - add error handling where missing
