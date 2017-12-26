@@ -20,7 +20,7 @@ At the moment it only works if you run it locally on your pc.
     - get a developer API key from http://developer.bose.com
     - enter your key on line 5 in `scripts.js`
 5. Install with `npm install` from the node console
-6. Run `node server.js` and point your browser to localhost:3000
+6. Run `node server.js` and point your browser to localhost:3001
 
 
 ## Still to come

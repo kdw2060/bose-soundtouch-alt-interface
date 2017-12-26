@@ -41,7 +41,6 @@ function setSpeakerIP() {
 function showAllChannels() {
     $('.channelList').removeClass('channelList');
     $('.channelList').toggleClass('channelList-all');
-    console.log('view all clicked');
 }
 
 //Functions that use the Bose-API
@@ -121,7 +120,7 @@ function getInfo() {
 
 //Event listeners and document ready function
 $(document).ready(function() {
-    $.getJSON("http://localhost:3000/api/devices", function(data) {
+    $.getJSON("http://localhost:3001/api/devices", function(data) {
         speakers = data;
         setSpeakerIP();
         getInfo();

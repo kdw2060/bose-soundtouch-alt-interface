@@ -1,24 +1,18 @@
  {
       "name": "MyBoseApp",
-      "version": "latest",
-      "slug": "bose",
-      "description": "MyBoseTryOutApp",
-      "url": "https://github.com/kdw2060/Bose-Alt-Interface/",
+      "version": "0.5",
+      "slug": "MyBoseApp",
+      "description": "",
       "webui": "http://[HOST]:[PORT:10080]", 
-      "startup": "application",
+      "startup": "before",
       "boot": "auto",
       "ports": {
-        "3000/tcp": 10080
+        "3001/tcp": 3001
       },
       "environment": {
       },
-      "arch": ["armv7","armhf"],
       "options": {
-          "serverip": null,
-          "serverport": 3000
       },
       "schema": {
-        "serverip": "str",
-        "serverport": "int"
       }
     }

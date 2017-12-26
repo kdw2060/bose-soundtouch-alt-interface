@@ -4,7 +4,7 @@
   "description": "Alternative interface for Bose Soundtouch devices with limited functions tailored to my needs.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "kdw2060",
   "license": "MIT",
