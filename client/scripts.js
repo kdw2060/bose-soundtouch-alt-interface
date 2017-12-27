@@ -20,10 +20,10 @@ function setSpeaker(speaker, el){
     getInfo();
 };
 
-function setSpeakerViaSelect(event){
-    var selectElement = event.target;
-    var value = selectElement.value;
-    selectedSpeaker = value;
+function setSpeaker2(speaker, el){
+    selectedSpeaker = speaker;
+    $(".speaker-buttons a").removeClass('is-info');
+    $(el).toggleClass('is-info');
     console.log(selectedSpeaker);
     setSpeakerIP();
     console.log(selectedSpeakerIP);
@@ -130,12 +130,10 @@ $(document).ready(function() {
     volumecontroll.addEventListener('mouseup', function(){
         var volume = this.value;
         console.log(volume);
-        setVolume(volume);
         setTimeout(getInfo, 500);
     });
     volumecontroll.addEventListener('touchend', function(){
         var volume = this.value;
-        console.log(volume);
         setVolume(volume);
         setTimeout(getInfo, 500);
     });
@@ -147,6 +145,5 @@ $(document).ready(function() {
             var $target = document.getElementById(target);
             burger.classList.toggle('is-active');
             $target.classList.toggle('is-active');
-            console.log('hamburger event');
     });
 });

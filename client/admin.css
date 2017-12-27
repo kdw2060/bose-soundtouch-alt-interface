@@ -97,11 +97,17 @@ nav.navbar {
     width: 45%;
 }
 .clicked {
-    background-color: rgba(21, 197, 209, 0.97);
+    background-color: #209cee;
+    color: #fff;
 }
-.speakers-select {
+.speaker-buttons {
     display: none;
+    margin-bottom: 1em;
 }
+.speaker-buttons .button {
+/*    width: 22vw*/
+}
+
 
 /*fixes for mobile view*/
 .navbar-menu {
@@ -114,7 +120,7 @@ nav.navbar {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
       .navbar-burger {
-          margin-left: -2em;
+          margin-right: .5em;
           margin-top: .5em;
       }
       .navbar-menu {

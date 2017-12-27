@@ -22,8 +22,8 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="index.html">
-            <img src="bose_logo.png"/>@kdw2060's alternative Soundtouch Interface
-        </a>
+            <img src="bose_logo.png"/>@kdw2060's SoundTouch app
+          </a>
         <button class="button navbar-burger" data-target="navMenu" id="burger">
           <span></span>
           <span></span>
@@ -116,17 +116,29 @@
             </div>
           </div>
         </section>
-        <section class="speakers-select show-when-mobile">
-            <div class="field">
-                <label class="label">Choose a speaker</label>
-                <div class="select is-info is-medium">
-                    <select onchange="setSpeakerViaSelect(event)">
-                        <option value='SoundTouch 10Keuken'>Kitchen speaker</option>
-                        <option value='SoundTouch10Badkamer'>Bathroom speaker</option>
-                        <option value='SoundTouch10Marieke'>Marieke's speaker</option>
-                        <option value='SoundTouch10Kris'>Kris's speaker</option>
-                    </select>
-                </div>
+        <section class="speaker-buttons show-when-mobile">
+            <label class="label">Choose a speaker</label>
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="button is-info" onclick="setSpeaker2('SoundTouch 10Keuken', this)">
+                  Kitchen
+                </a>
+              </p>
+              <p class="control">
+                <a class="button" onclick="setSpeaker2('SoundTouch10Badkamer', this)">
+                  Bathroom
+                </a>
+              </p>
+              <p class="control">
+                <a class="button" onclick="setSpeaker2('SoundTouch10Marieke', this)">
+                  Marieke
+                </a>
+              </p>
+              <p class="control">
+                <a class="button" onclick="setSpeaker2('SoundTouch10Kris', this)">
+                  Kris
+                </a>
+              </p>
             </div>
         </section>
         <section class="card currentlyPlaying">
