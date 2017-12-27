@@ -1,6 +1,5 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-FROM %%BASE_IMAGE%%
 
 WORKDIR /usr/src/my_bose_app
 
