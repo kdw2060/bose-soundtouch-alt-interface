@@ -34,7 +34,7 @@ I want to make a Hass.io addon out of it because I already have a Raspberry Pi r
 **Polish**
 - add error handling where missing
 - make an array of radio-stations (per user), then use these values in stead of hard-coding them in the html
-:white_check_mark: ~~in stead of hardcoding the speaker-names, use the Bose API to read out the names and make a dynamic array; also use this to dynamically build the speaker cards and mobile menu~~
+- :white_check_mark: ~~in stead of hardcoding the speaker-names, use the Bose API to read out the names and make a dynamic array; also use this to dynamically build the speaker cards and mobile menu~~
 
 **Functionality**
 - add the ability to search and save favorite stations from within the app
