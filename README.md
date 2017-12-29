@@ -26,7 +26,7 @@ At the moment it only works if you run it locally on your pc.
 
 Wanna help out with this project? Here are some To Do's:
 
-**Make it work on any webserver**
+**Make it work as a Hass.io addon**
 
 At the moment the app only works when running it locally on your pc. I want to install it on a permanently running webserver though so I can access it form my phone. 
 I want to make a Hass.io addon out of it because I already have a Raspberry Pi running Hass.io --> I could really use some help with this part. The project includes `Dockerfile`, `config.json` and `run.sh` files to this end, but I'm still figuring that stuff out and couldn't get it working so far.
