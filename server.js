@@ -5,39 +5,25 @@ var app = express();
 app.use(express.static('client'));
 
 //array of my speakers
-var speakers = [
-    {"name":"SoundTouch 10Keuken",
-    "ip":""},
-    {"name":"SoundTouch10Badkamer",
-    "ip":""},
-    {"name":"SoundTouch10Marieke",
-    "ip":""},
-    {"name":"SoundTouch10Kris",
-    "ip":""}
-];
+var speakers = [];
 
-//discover ip adresses of my speakers
+//discover speakers and push their basic data to array
 var bonjour = require('bonjour')()
 bonjour.find({ type: 'soundtouch' }, function (service) {
-//    console.log(service);
-    if (service.name == 'SoundTouch 10Keuken') {
-        speakers[0].ip = service.referer.address;
-    }
-    if (service.name == 'SoundTouch10Badkamer') {
-        speakers[1].ip = service.referer.address;
-    }
-    if (service.name == 'SoundTouch10Marieke') {
-        speakers[2].ip = service.referer.address;
-    }
-    if (service.name == 'SoundTouch10Kris') {
-        speakers[3].ip = service.referer.address;
-    }
+    console.log(service);    
+    var myObj = {
+        "name" : service.name,
+        "ip" : service.referer.address,
+        "mac" : service.txt.mac
+    };
+    speakers.push(myObj);
 })
 
-//send ip-adresses to client
+//to do: make function to refresh array every x minutes
+
+//send speaker-array to client
 app.get('/api/devices', function (req, res) {
   res.status(200).json(speakers);
 });
-
 
 app.listen(3001);

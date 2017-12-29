@@ -45,7 +45,7 @@ nav.navbar {
   font-weight: 700;
 }
 .title {
-    font-size: 1.25em !important;
+    font-size: .92em !important;
 }
 .card {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
@@ -100,16 +100,8 @@ nav.navbar {
     background-color: #209cee;
     color: #fff;
 }
-.speaker-buttons {
-    display: none;
-    margin-bottom: 1em;
-}
-.speaker-buttons .button {
-/*    width: 22vw*/
-}
 
-
-/*fixes for mobile view*/
+/*mobile view*/
 .navbar-menu {
     display: none;
 }
@@ -129,8 +121,16 @@ nav.navbar {
       .hide-when-mobile {
           display: none;
       }
-      .speakers-select {
-          margin-bottom: 1em;
+      .info-tiles {
+          margin-top: 0;
+      }
+      .info-tiles .tile {
+          margin-bottom: 0;
+      }
+      .info-tiles .tile .title {
+          font-size: 1rem !important;
+          word-break: normal;
+          font-weight: 400;
       }
       .show-when-mobile {
         display: block;

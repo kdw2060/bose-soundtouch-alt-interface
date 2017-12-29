@@ -12,7 +12,8 @@
     <script async type="text/javascript" src="scripts.js"></script>
   <!-- Bulma Version 0.6.0 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
-<link rel="stylesheet" href="bulma-slider/bulma-slider.css" />
+    <link rel="stylesheet" href="bulma-slider/bulma-slider.min.css" />
+    <link rel="stylesheet" href="bulma-tooltip/bulma-tooltip.min.css" />
   <link rel="stylesheet" type="text/css" href="admin.css">
 </head>
 <body>
@@ -30,25 +31,13 @@
           <span></span>
         </button>
       </div>
-    <div class="navbar-menu" id="navMenu">
-            <p class="menu-label">Rooms</p>
+        <div class="navbar-menu" id="navMenu">
+            <p class="menu-label">Select a speaker</p>
             <ul class="menu-list">
-            <li ><a class="is-active">All speakers</a></li>
-<!--Room selection not in use for the moment, might develop in the future.-->
-            <li><a>Kitchen</a></li>
-            <li><a>Bathroom</a></li>
-            <li><a>Marieke's room</a></li>
-            <li><a>Kris's room</a></li>
-<!-- example of grouped speakers
-            <li>
-              <a>Living room</a>
-              <ul>
-                <li><a>Front window</a></li>
-                <li><a>Back window</a></li>
-              </ul>
-            </li>
--->
-          </ul>
+                <!--
+                this list will be built dynamically upon discovery of the speakers
+                -->
+             </ul>
         </div>
     </div>
   </nav>
@@ -56,7 +45,7 @@
   <div class="container">
     <div class="columns">
       <div class="column is-3 hide-when-mobile">
-        <aside class="menu">
+        <aside class="menu tooltip is-tooltip-top" data-tooltip="This menu doesn't work for now">
           <p class="menu-label">
             Rooms
           </p>
@@ -67,7 +56,6 @@
             <li><a>Bathroom</a></li>
             <li><a>Marieke's room</a></li>
             <li><a>Kris's room</a></li>
-<!-- example of grouped speakers
             <li>
               <a>Living room</a>
               <ul>
@@ -75,7 +63,6 @@
                 <li><a>Back window</a></li>
               </ul>
             </li>
--->
           </ul>
 <!--User selection not in use for the moment, might develop in the future.-->
           <p class="menu-label">
@@ -88,58 +75,13 @@
         </aside>
       </div>
       <div class="column is-9-desktop">
-          <section class="info-tiles hide-when-mobile">
-          <div class="tile is-ancestor has-text-centered">
-            <div class="tile is-parent">
-              <article class="tile is-child box" onclick="setSpeaker('SoundTouch 10Keuken', this)">
-                <img src="soundtouch10.png"/>
-                  <p class="title">Kitchen</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box" onclick="setSpeaker('SoundTouch10Badkamer', this)">
-                <img src="soundtouch10.png"/>
-                  <p class="title">Bathroom</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box" onclick="setSpeaker('SoundTouch10Marieke', this)">
-                <img src="soundtouch10.png"/>
-                  <p class="title">Marieke</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box" onclick="setSpeaker('SoundTouch10Kris', this)">
-                <img src="soundtouch10.png"/>
-                  <p class="title">Kris</p>
-              </article>
-            </div>
+        <section class="info-tiles hide-when-mobile">
+         <label class="label">Select a speaker</label>
+          <div class="tile is-ancestor has-text-centered" id="targetForTiles">
+            <!--
+            these tiles will be built dynamically upon discovery of the speakers
+            -->
           </div>
-        </section>
-        <section class="speaker-buttons show-when-mobile">
-            <label class="label">Choose a speaker</label>
-            <div class="field is-grouped">
-              <p class="control">
-                <a class="button is-info" onclick="setSpeaker2('SoundTouch 10Keuken', this)">
-                  Kitchen
-                </a>
-              </p>
-              <p class="control">
-                <a class="button" onclick="setSpeaker2('SoundTouch10Badkamer', this)">
-                  Bathroom
-                </a>
-              </p>
-              <p class="control">
-                <a class="button" onclick="setSpeaker2('SoundTouch10Marieke', this)">
-                  Marieke
-                </a>
-              </p>
-              <p class="control">
-                <a class="button" onclick="setSpeaker2('SoundTouch10Kris', this)">
-                  Kris
-                </a>
-              </p>
-            </div>
         </section>
         <section class="card currentlyPlaying">
                 <p class="currentSpeaker"></p>

@@ -10,27 +10,38 @@ var messages = [
 ]
 
 //Interface-related functions
+
+    //Functions that build the speaker tiles and mobile menu (maybe turn these into angular thingies later)
+    function makeTiles(){
+        var html = "";
+        for (i=0; i<speakers.length; i++){
+            html += "<div class='tile is-parent'><article class='tile is-child box' onclick='setSpeaker(&quot;" + speakers[i].name + "&quot;, this)'><img src='soundtouch10.png'/><p class='title'>" + speakers[i].name + "</p></article></div>";
+        }
+        $('#targetForTiles').html(html);
+    }
+    
+    function makeBurgerMenu(){
+        var html = "";
+        for (i=0; i<speakers.length; i++){
+            html += "<li><a onclick='setSpeaker(&quot;" + speakers[i].name + "&quot;, this)'>" + speakers[i].name + "</a></li>";
+        }
+        $('#navMenu .menu-list').html(html);
+    }
+    //End of builder functions
+
 function setSpeaker(speaker, el){
     selectedSpeaker = speaker;
     $("article").removeClass('clicked');
+    $(".menu-list li a").removeClass('clicked');
     $(el).toggleClass('clicked');
+    $('#navMenu').toggleClass('is-active');
     console.log(selectedSpeaker);
-    setSpeakerIP();
+    getSelectedSpeakerIP();
     console.log(selectedSpeakerIP);
     getInfo();
 };
 
-function setSpeaker2(speaker, el){
-    selectedSpeaker = speaker;
-    $(".speaker-buttons a").removeClass('is-info');
-    $(el).toggleClass('is-info');
-    console.log(selectedSpeaker);
-    setSpeakerIP();
-    console.log(selectedSpeakerIP);
-    getInfo();
-};
-
-function setSpeakerIP() {
+function getSelectedSpeakerIP() {
     for (i=0; i<4; i++) {
             if (speakers[i].name == selectedSpeaker) { 
                 selectedSpeakerIP = speakers[i].ip;
@@ -55,7 +66,7 @@ function setChannel(location) {
     dataType: 'text',
     success: function(result){
         console.log('setChannel function fired');
-        setTimeout(getInfo, 500);
+        setTimeout(getInfo, 1000);
     },
     error: function(jqXHR, transStatus, errorThrown) {
       alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
@@ -115,6 +126,14 @@ function getInfo() {
           $('.currentVolume').html('Volume: <span class="nowPlaying">' + currentVolume + '</span>');
           $(".slider").val(currentVolume);
       });
+    //debuginfo
+    for (i=0; i<speakers.length; i++) {
+        $.get("http://" + speakers[i].ip + ":8090/info", {})
+        .done(function(xml){
+            console.log(xml);
+        })
+    }
+    //end debug
 }
 
 
@@ -122,25 +141,27 @@ function getInfo() {
 $(document).ready(function() {
     $.getJSON("http://localhost:3001/api/devices", function(data) {
         speakers = data;
-        setSpeakerIP();
+        getSelectedSpeakerIP();
         getInfo();
+        makeTiles();
+        makeBurgerMenu();
         });
+    //to do: repeat this function every x minutes to discover changes in the network
     
     var volumecontroll = document.getElementById("volslider");
     volumecontroll.addEventListener('mouseup', function(){
         var volume = this.value;
-        console.log(volume);
-        setTimeout(getInfo, 500);
+        setVolume(volume);
+        setTimeout(getInfo, 1000);
     });
     volumecontroll.addEventListener('touchend', function(){
         var volume = this.value;
         setVolume(volume);
-        setTimeout(getInfo, 500);
+        setTimeout(getInfo, 1000);
     });
     
     var burger = document.getElementById('burger');
     burger.addEventListener('click', function(){
-            // Get the target from the "data-target" attribute
             var target = burger.dataset.target;
             var $target = document.getElementById(target);
             burger.classList.toggle('is-active');

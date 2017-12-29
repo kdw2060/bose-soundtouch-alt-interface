@@ -1,6 +1,6 @@
 {
   "name": "bose-alt-interface",
-  "version": "1.0.0",
+  "version": "0.6",
   "description": "Alternative interface for Bose Soundtouch devices with limited functions tailored to my needs.",
   "main": "server.js",
   "scripts": {

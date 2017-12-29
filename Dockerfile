@@ -1,7 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-WORKDIR /usr/src/my_bose_app
+WORKDIR /data
+
 
 ENV LANG C.UTF-8
 

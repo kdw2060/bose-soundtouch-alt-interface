@@ -14,13 +14,12 @@ At the moment it only works if you run it locally on your pc.
 ## Installation and configuration
 
 1. Download or fork this project
-2. Edit the speaker array and the discovery-function in `server.js` to match your speaker lay-out. Use the exact names you gave them when you configured them.
-3. Edit the list of radio channels in `index.html` to your preferred stations. You can find the radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp
-4. Only if you want to use the intercom functionality: 
+2. Edit the list of radio channels in `index.html` to your preferred stations. You can find the radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp
+3. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
     - enter your key on line 5 in `scripts.js`
-5. Install with `npm install` from the node console
-6. Run `node server.js` and point your browser to localhost:3001
+4. Install with `npm install` from the node console
+5. Run `node server.js` and point your browser to localhost:3001
 
 
 ## Still to come
@@ -35,7 +34,7 @@ I want to make a Hass.io addon out of it because I already have a Raspberry Pi r
 **Polish**
 - add error handling where missing
 - make an array of radio-stations (per user), then use these values in stead of hard-coding them in the html
-- in stead of hardcoding the speaker-names, use the Bose API to read out the names and make a dynamic array; also use this to dynamically build the speaker cards and select box
+:white_check_mark: ~~in stead of hardcoding the speaker-names, use the Bose API to read out the names and make a dynamic array; also use this to dynamically build the speaker cards and mobile menu~~
 
 **Functionality**
 - add the ability to search and save favorite stations from within the app
