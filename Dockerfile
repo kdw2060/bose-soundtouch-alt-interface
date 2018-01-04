@@ -1,16 +1,20 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-
-WORKDIR /data
-
-
 ENV LANG C.UTF-8
 
 # Install node.js
-RUN apk add --no-cache jq nodejs nodejs-npm git
+RUN apk add --no-cache nodejs nodejs-npm
+
+# Create app directory
+WORKDIR /data/my_bose_app
 
 # Copy data for add-on
-COPY run.sh /
-RUN chmod a+x /run.sh
+COPY package.json .
+COPY . .
+COPY client .
 
-CMD [ "/run.sh" ]
+EXPOSE 3001
+
+COPY run.sh /data/my_bose_app
+RUN chmod a+x /data/my_bose_app/run.sh
+CMD [ "/data/my_bose_app/run.sh" ]
