@@ -1,5 +1,3 @@
-echo Hello world!;
-cd /data/my_bose_app;
+cd /usr/src/app;
 npm install;
-echo Bonjour micro;
 npm start;

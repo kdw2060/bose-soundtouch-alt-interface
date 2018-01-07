@@ -13,23 +13,30 @@ At the moment it only works if you run it locally on your pc.
 
 ## Installation and configuration
 
-1. Download or fork this project
+1. Download this project
 2. Edit the list of radio channels in `index.html` to your preferred stations. You can find the radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp
 3. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
     - enter your key on line 5 in `scripts.js`
+    
+**install locally \ on your webserver**
 4. Install with `npm install` from the node console
 5. Run `node server.js` and point your browser to localhost:3001
 
+**install on Hass.io** _not fully working yet_**
+4. Copy all project files to a folder within the Hass.io addon folder ([see intro of this tutorial](https://home-assistant.io/developers/hassio/addon_tutorial/))
+5. Navigate to the Hass.io store and hit refresh
+6. Click on the 'MyBoseApp' addon and hit install
+7. When installation has finished hit start and wait a minute or so (at least on a raspberry pi)
+8. Navigate your browser to hassio.local:3001
 
 ## Still to come
 
 Wanna help out with this project? Here are some To Do's:
 
-**Make it work as a Hass.io addon**
+**Fix the server.js for the Hass.io addon**
 
-At the moment the app only works when running it locally on your pc. I want to install it on a permanently running webserver though so I can access it form my phone. 
-I want to make a Hass.io addon out of it because I already have a Raspberry Pi running Hass.io --> I could really use some help with this part. The project includes `Dockerfile`, `config.json` and `run.sh` files to this end, but I'm still figuring that stuff out and couldn't get it working so far.
+For some reason the speakerDiscovery function in server.js works fine when ran locally, but doesn't work when run on Hass.io. As far as I understand i get a 'circular' error on `console.log(speakers)`, which seems to indicate an error in the code that fills the speaker array.
 
 **Polish**
 - add error handling where missing

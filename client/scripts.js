@@ -4,6 +4,7 @@ var selectedSpeaker = 'SoundTouch10Kris'; //todo: save last selected speaker as 
 var selectedSpeakerIP;
 var APIkey = '';  //enter your app API key from developer.bose.com
 //List of intercom messages
+//List of intercom messages (to do: move to options.json)
 var messages = [
     {"name":"dinner", 
     "url": "https://freesound.org/data/previews/234/234034_2631614-lq.mp3"}
@@ -42,7 +43,7 @@ function setSpeaker(speaker, el){
 };
 
 function getSelectedSpeakerIP() {
-    for (i=0; i<4; i++) {
+    for (i=0; i<speakers.length; i++) {
             if (speakers[i].name == selectedSpeaker) { 
                 selectedSpeakerIP = speakers[i].ip;
             }
@@ -138,33 +139,45 @@ function getInfo() {
 
 
 //Event listeners and document ready function
-$(document).ready(function() {
-    $.getJSON("http://localhost:3001/api/devices", function(data) {
-        speakers = data;
-        getSelectedSpeakerIP();
-        getInfo();
-        makeTiles();
-        makeBurgerMenu();
-        });
-    //to do: repeat this function every x minutes to discover changes in the network
-    
-    var volumecontroll = document.getElementById("volslider");
-    volumecontroll.addEventListener('mouseup', function(){
+var volumecontroll = document.getElementById("volslider");
+volumecontroll.addEventListener('mouseup', function(){
         var volume = this.value;
         setVolume(volume);
         setTimeout(getInfo, 1000);
-    });
-    volumecontroll.addEventListener('touchend', function(){
+});
+volumecontroll.addEventListener('touchend', function(){
         var volume = this.value;
         setVolume(volume);
         setTimeout(getInfo, 1000);
-    });
-    
-    var burger = document.getElementById('burger');
-    burger.addEventListener('click', function(){
+});
+var burger = document.getElementById('burger');
+burger.addEventListener('click', function(){
             var target = burger.dataset.target;
             var $target = document.getElementById(target);
             burger.classList.toggle('is-active');
             $target.classList.toggle('is-active');
-    });
+});
+
+$(document).ready(function() {
+    var hostname = window.location.hostname;
+    $.getJSON("http://" + hostname + ":3001/api/devices", function(data) {
+        speakers = data;
+            if (data != "" ) {
+                console.log('everything ok');
+                getSelectedSpeakerIP();
+                getInfo();
+                makeTiles();
+                makeBurgerMenu();
+            }
+            if (data == ""){
+                alert('Your speakers could not be detected yet. Try to refresh the page in a minute.');
+                //todo: replace alert with a spinner until speakers found or else show time-out message
+            }
+        }).fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+                alert("404 Not Found");
+            } else {
+                alert("The speaker discovery service cannot be reached.");
+            }
+        });;
 });

@@ -1,15 +1,14 @@
  {
       "name": "MyBoseApp",
-      "version": "0.8.2",
+      "version": "0.8.4",
       "slug": "my-bose-app",
-      "description": "A basic alternative for Bose's Soundtouch app that gives you the ability to store an unlimited amount of favourite radio channels & use the speakers as a sort of intercom.",
+      "description": "A basic alternative for the Bose Soundtouch app that gives you the ability to store an unlimited amount of favourite radio channels & use the speakers as a sort of intercom.",
       "startup": "before",
       "boot": "auto",
       "hassio_api": "yes",
       "ports": {
-        "3001/tcp": 3001
-      },
-      "environment": {
+        "3001/tcp": 3001,
+        "55281/tcp": 55281
       },
       "options": {
       },
