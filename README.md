@@ -24,7 +24,7 @@ At the moment it only works if you run it locally on your pc.
 4. Install with `npm install` from the node console
 5. Run `node server.js` and point your browser to localhost:3001
 
-**install on Hass.io**  **_not fully working yet_**
+**install on Hass.io** - **_not fully working yet_**
 
 4. Copy all project files to a folder within the Hass.io addon folder ([see intro of this tutorial](https://home-assistant.io/developers/hassio/addon_tutorial/))
 5. Navigate to the Hass.io store and hit refresh
