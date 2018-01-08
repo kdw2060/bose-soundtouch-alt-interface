@@ -12,7 +12,8 @@ var speakers = [];
 function speakerDiscovery(){
     var bonjour = require('bonjour')()
     bonjour.find({ type: 'soundtouch' }, function (service) {
-        console.log(service);
+        //console.log(service);
+        console.log('test');
         var myObj = {
             "name" : service.name,
             "ip" : service.referer.address,
@@ -30,6 +31,7 @@ function speakerDiscovery(){
         }
     })
     console.log(speakers);
+    console.log('test2');
 }
 
 //repeat every minute in case new speakers are added or their ip changes

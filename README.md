@@ -38,7 +38,7 @@ Wanna help out with this project? Here are some To Do's:
 
 **Fix the server.js for the Hass.io addon**
 
-For some reason the speakerDiscovery function in server.js works fine when ran locally, but doesn't work when run on Hass.io. As far as I understand i get a 'circular' error on `console.log(speakers)`, which seems to indicate an error in the code that fills the speaker array.
+For some reason the speakerDiscovery function in server.js works fine when ran locally, but doesn't work when run on Hass.io. It seems like the bonjour package isn't working when run inside Hass.io (a platfom issue?)and the node console also logs a 'circular' error.
 
 **Polish**
 - add error handling where missing
