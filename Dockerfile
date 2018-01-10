@@ -13,8 +13,6 @@ COPY package.json .
 COPY . .
 COPY client .
 
-EXPOSE 3001
-
 COPY run.sh /usr/src/app
 RUN chmod a+x /usr/src/app/run.sh
 CMD [ "/usr/src/app/run.sh" ]

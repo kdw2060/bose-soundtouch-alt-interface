@@ -7,8 +7,6 @@ This web-app doesn't feature all SoundTouch functions, I just wanted to build so
 - the ability to store more than 6 radio presets 
 - the ability to use the speakers as an intercom
 
-At the moment it only works if you run it locally on your pc.
-
 ![Desktop lay-out](screenshots/myAppDesktop.png)
 
 ## Installation and configuration
@@ -24,26 +22,23 @@ At the moment it only works if you run it locally on your pc.
 4. Install with `npm install` from the node console
 5. Run `node server.js` and point your browser to localhost:3001
 
-**install on Hass.io** - **_not fully working yet_**
+**install on Hass.io**
 
 4. Copy all project files to a folder within the Hass.io addon folder ([see intro of this tutorial](https://home-assistant.io/developers/hassio/addon_tutorial/))
 5. Navigate to the Hass.io store and hit refresh
 6. Click on the 'MyBoseApp' addon and hit install
 7. When installation has finished hit start and wait a minute or so (at least on a raspberry pi)
-8. Navigate your browser to hassio.local:3001
+8. Click the 'open web ui' button
 
 ## Still to come
 
 Wanna help out with this project? Here are some To Do's:
 
-**Fix the server.js for the Hass.io addon**
-
-For some reason the speakerDiscovery function in server.js works fine when ran locally, but doesn't work when run on Hass.io. It seems like the bonjour package isn't working when run inside Hass.io (a platfom issue?)and the node console also logs a 'circular' error.
-
 **Polish**
 - add error handling where missing
-- make an array of radio-stations (per user), then use these values in stead of hard-coding them in the html
+- store array of radio-stations (per user) in options.json, then use these values in stead of hard-coding them in the html
 - :white_check_mark: ~~in stead of hardcoding the speaker-names, use the Bose API to read out the names and make a dynamic array; also use this to dynamically build the speaker cards and mobile menu~~
+- make the client work as a progressive web app
 
 **Functionality**
 - add the ability to search and save favorite stations from within the app

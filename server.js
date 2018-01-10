@@ -3,7 +3,6 @@ var express = require('express');
 var bodyparser = require('body-parser');
 var app = express();
 app.use(express.static('client'));
-var codein = require("node-codein");
 
 //array of my speakers
 var speakers = [];
@@ -12,14 +11,11 @@ var speakers = [];
 function speakerDiscovery(){
     var bonjour = require('bonjour')()
     bonjour.find({ type: 'soundtouch' }, function (service) {
-        //console.log(service);
-        console.log('test');
         var myObj = {
             "name" : service.name,
             "ip" : service.referer.address,
             "mac" : service.txt.mac
         };
-//        speakers.push(myObj);
         //fill or update array only when necessary    
         var objIndex = speakers.findIndex(x => x.name == myObj.name);
         if (objIndex === -1 ){speakers.push(myObj); console.log('new speaker added');}
@@ -30,14 +26,12 @@ function speakerDiscovery(){
             }
         }
     })
-    console.log(speakers);
-    console.log('test2');
 }
 
 //repeat every minute in case new speakers are added or their ip changes
 setInterval(speakerDiscovery, 60000);
 
-//send speaker-array to client
+//make speaker-array available to client
 app.get('/api/devices', function (req, res) {
   res.status(200).json(speakers);
 });
