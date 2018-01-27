@@ -13,12 +13,12 @@ This web-app doesn't feature all SoundTouch functions, I just wanted to build so
 1. Download this project
 2. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
-    - enter your key on line 5 in `scripts.js` inside the clients\js folder
+    - enter your key on line 5 in `scripts.js` inside the client\js folder
     
 **install locally \ on your webserver**
 
 3. Set the variable `HassEnv` to false on line 8 of `server.js`
-4. Edit `options.json` inside the clients\js folder to edit the list of your preferred radio channels and intercom messages. You can quickly find the radiochannel codes via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp
+4. Edit `options.json` inside the client\js folder to edit the list of your preferred radio channels and intercom messages. You can quickly find the radiochannel codes via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp
 5. Install with `npm install` from the node console
 6. Run `node server.js` and point your browser to localhost:3001
 
