@@ -1,9 +1,9 @@
 # My Personal Bose SoundTouch App
 
 
-WORK IN PROGRESS - [HELP WELCOME](#still-to-come)
+WORK IN PROGRESS - [HELP WELCOME](#still-to-come) <img width="300px" align="right" src="https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/myAppMobile.PNG"/>
 
-This web-app doesn't feature all SoundTouch functions, I just wanted to build something with two features that I was missing in the official app: <img align="right" src="https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/myAppMobile.PNG"/>
+This web-app doesn't feature all SoundTouch functions, I just wanted to build something with two features that I was missing in the official app: 
 - the ability to store more than 6 radio presets 
 - the ability to use the speakers as an intercom
 
