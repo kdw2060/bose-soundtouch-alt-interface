@@ -5,16 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bose Soundtouch Interface - by @kdw2060</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="bulma-slider/slider.js"></script>
-    <script async type="text/javascript" src="scripts.js"></script>
-  <!-- Bulma Version 0.6.0 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+    <script async type="text/javascript" src="js/scripts.js"></script>
+    <script async type="text/javascript" src="js/interfaceActions.js"></script>
+    <script async type="text/javascript" src="js/interfaceBuilders.js"></script>
+    <link rel="stylesheet" href="css/bulma.min.css" />
     <link rel="stylesheet" href="bulma-slider/bulma-slider.min.css" />
     <link rel="stylesheet" href="bulma-tooltip/bulma-tooltip.min.css" />
-  <link rel="stylesheet" type="text/css" href="admin.css">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="index.html">
-            <img src="bose_logo.png"/>@kdw2060's SoundTouch app
+            <img src="img/bose_logo.png"/>@kdw2060's SoundTouch app
           </a>
         <button class="button navbar-burger" data-target="navMenu" id="burger">
           <span></span>
@@ -95,60 +96,13 @@
           <div class="column is-5 radiochannels">
             <div class="card events-card">
               <header class="card-header">
-                <p class="card-header-title">
-                  Radio channels
-                </p>
+                <p class="card-header-title">Radio channels</p>
               </header>
 <!--Find radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp-->
               <div class="card-table channelList">
                 <div class="content">
                   <table class="table is-fullwidth is-striped">
-                    <tbody>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Radio 1</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(7756)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>StuBru</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(4712)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Nostalgie</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(16673)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Classic 21 60's</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(25768)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Classic 21 70's</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(75015)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Classic 21 80's</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(25769)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Classic 21 90's</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(77755)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>Classic 21 Blues</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(80452)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-play-circle"></i></td>
-                        <td>NPR</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="setChannel(763)">Play</a></td>
-                      </tr>
+                    <tbody id="favRadios">
                     </tbody>
                   </table>
                 </div>
@@ -161,35 +115,13 @@
           <div class="column intercom">
             <div class="card events-card">
               <header class="card-header">
-                <p class="card-header-title">
-                  Intercom messages
-                </p>
+                <p class="card-header-title">Intercom messages</p>
                 <a href="#" class="card-header-icon" aria-label="more options"></a>
               </header>
               <div class="card-table">
                 <div class="content">
                   <table class="table is-fullwidth is-striped">
-                    <tbody>
-                      <tr>
-                        <td width="5%"><i class="fa fa-comment-o"></i></td>
-                        <td>Dinner's ready</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="sendIntercomMessage(messages[0].url)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Message 2</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="sendIntercomMessage(messages[1].url)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Message 3</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="sendIntercomMessage(messages[2].url)">Play</a></td>
-                      </tr>
-                      <tr>
-                        <td width="5%"><i class="fa fa-bell-o"></i></td>
-                        <td>Message 4</td>
-                        <td><a class="button is-small is-primary" href="#" onclick="sendIntercomMessage(messages[3].url)">Play</a></td>
-                      </tr>
+                    <tbody id="messageList">
                     </tbody>
                   </table>
                 </div>

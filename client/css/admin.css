@@ -132,6 +132,9 @@ nav.navbar {
           word-break: normal;
           font-weight: 400;
       }
+      .slider {
+          width: 77%;
+      }
       .show-when-mobile {
         display: block;
       }

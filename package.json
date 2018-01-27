@@ -1,6 +1,6 @@
 {
   "name": "bose-alt-interface",
-  "version": "0.9.0",
+  "version": "0.9.3",
   "description": "A basic alternative for the Bose Soundtouch app that gives you the ability to store an unlimited amount of favourite radio channels & use the speakers as a sort of intercom.",
   "scripts": {
     "start": "node server.js"

@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 
 # Install node.js
-RUN apk add --no-cache nodejs nodejs-npm
+RUN apk add --no-cache jq nodejs nodejs-npm
 
 # Create app directory
 WORKDIR /usr/src/app

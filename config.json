@@ -1,9 +1,10 @@
  {
       "name": "MyBoseApp",
-      "version": "0.9.0",
+      "version": "0.9.3",
       "slug": "my-bose-app",
       "description": "A basic alternative for the Bose Soundtouch app that gives you the ability to store an unlimited amount of favourite radio channels & use the speakers as a sort of intercom.",
-      "startup": "before",
+      "url": "https://github.com/kdw2060/bose-soundtouch-alt-interface",
+      "startup": "application",
       "boot": "auto",
       "hassio_api": "yes",
       "host_network": "true",
@@ -12,7 +13,29 @@
         "3001/tcp": 3001
       },
       "options": {
+          "radioFavourites": [
+              {"channelName": "StuBru", "locationcode": "4712"},
+              {"channelName": "Radio 1", "locationcode": "7756"},
+              {"channelName": "Nostalgie", "locationcode": "16673"},
+              {"channelName": "Classic 21 60's", "locationcode": "25768"},
+              {"channelName": "Classic 21 70's", "locationcode": "75015"},
+              {"channelName": "Classic 21 80's", "locationcode": "25769"},
+              {"channelName": "Classic 21 90's", "locationcode": "77755"},
+              {"channelName": "Classic 21 Blues", "locationcode": "80452"},
+              {"channelName": "Classic 21 Route66", "locationcode": "85849"},
+              {"channelName": "NPR", "locationcode": "763"},
+              {"channelName": "Ajoin Music", "locationcode": "60354"}
+          ],
+          "intercomMessages": [
+              {"messageName": "Dinner is ready", "url": "https://freesound.org/data/previews/234/234034_2631614-lq.mp3"}
+          ]
       },
       "schema": {
+          "radioFavourites": [
+              {"channelName": "str", "locationcode": "int"}
+          ],
+          "intercomMessages": [
+              {"messageName": "str", "url": "url"}
+          ]
       }
     }
