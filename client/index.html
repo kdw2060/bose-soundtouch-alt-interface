@@ -5,17 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bose Soundtouch Interface - by @kdw2060</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/materialdesignicons.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="bulma-slider/slider.js"></script>
-    <script async type="text/javascript" src="js/scripts.js"></script>
-    <script async type="text/javascript" src="js/interfaceActions.js"></script>
-    <script async type="text/javascript" src="js/interfaceBuilders.js"></script>
+    <script type="text/javascript" src="js/micRecorder.js"></script>
+    <script src="js/slider.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/interfaceActions.js"></script>
+    <script type="text/javascript" src="js/interfaceBuilders.js"></script>
     <link rel="stylesheet" href="css/bulma.min.css" />
-    <link rel="stylesheet" href="bulma-slider/bulma-slider.min.css" />
-    <link rel="stylesheet" href="bulma-tooltip/bulma-tooltip.min.css" />
+    <link rel="stylesheet" href="css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="css/bulma-tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="css/bulma-divider.min.css">
 </head>
 <body>
 
@@ -45,14 +47,15 @@
   <!-- END NAV -->
   <div class="container">
     <div class="columns">
-      <div class="column is-3 hide-when-mobile">
+<!--
+<div class="column is-3 hide-when-mobile">
         <aside class="menu tooltip is-tooltip-top" data-tooltip="This menu doesn't work for now">
           <p class="menu-label">
             Rooms
           </p>
           <ul class="menu-list">
             <li ><a class="is-active">All speakers</a></li>
-<!--Room selection not in use for the moment, might develop in the future.-->
+//Room selection not in use for the moment, might develop in the future.
             <li><a>Kitchen</a></li>
             <li><a>Bathroom</a></li>
             <li><a>Marieke's room</a></li>
@@ -60,12 +63,12 @@
             <li>
               <a>Living room</a>
               <ul>
-                <li><a>Front window</a></li>
-                <li><a>Back window</a></li>
+                <li>Front window</li>
+                <li>Back window</li>
               </ul>
             </li>
           </ul>
-<!--User selection not in use for the moment, might develop in the future.-->
+//User selection not in use for the moment, might develop in the future.
           <p class="menu-label">
             Users
           </p>
@@ -74,7 +77,8 @@
             <li><a>User 2</a></li>
           </ul>
         </aside>
-      </div>
+      </div> 
+-->
       <div class="column is-9-desktop">
         <section class="info-tiles hide-when-mobile">
          <label class="label">Select a speaker</label>
@@ -85,20 +89,22 @@
           </div>
         </section>
         <section class="card currentlyPlaying">
-                <p class="currentSpeaker"></p>
-                <p class="currentChannel"></p>
-                <p><span class="currentVolume"></span><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider"></p>
+                <span class="currentSpeaker"></span>
+                <a class="button is-rounded is-pulled-right" id="powerButton"><span class="icon has-text-danger"><i class="mdi mdi-power"></i></span>&nbsp;Power</a>
+                <span class="currentChannel is-block"></span>
+                <div>
+                  <span class="currentVolume"></span><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider">
+                </div>
         </section>
         </div>
       </div>
         <div class="columns">
-            <div class="column is-3-desktop hide-when-mobile"></div>
           <div class="column is-5 radiochannels">
-            <div class="card events-card">
+            <div class="card">
               <header class="card-header">
-                <p class="card-header-title">Radio channels</p>
+                <p class="card-header-title has-text-black-ter">Radio channels</p>
               </header>
-<!--Find radiochannel codes quickly via http://vtuner.com/setupapp/guide/asp/BrowseStations/startpage.asp-->
+            <div class="card-content">
               <div class="card-table channelList">
                 <div class="content">
                   <table class="table is-fullwidth is-striped">
@@ -107,29 +113,36 @@
                   </table>
                 </div>
               </div>
+            </div>
               <footer class="card-footer">
                 <a href="#" class="card-footer-item" onclick="showAllChannels()">View All</a>
               </footer>
             </div>        
           </div>
-          <div class="column intercom">
+          <div class="column is-4 intercom">
             <div class="card events-card">
               <header class="card-header">
-                <p class="card-header-title">Intercom messages</p>
+                <p class="card-header-title has-text-black-ter">Intercom messages</p>
                 <a href="#" class="card-header-icon" aria-label="more options"></a>
               </header>
-              <div class="card-table">
+              <div class="card-content">
                 <div class="content">
-                  <table class="table is-fullwidth is-striped">
-                    <tbody id="messageList">
-                    </tbody>
-                  </table>
+                    <p class=" title is-6 has-text-grey-darke">Send preset message:</p>
+                    <div class="card-table">
+                        <table class="table is-fullwidth is-striped">
+                        <tbody id="messageList">
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="is-divider" data-content="OR"></div>
+                    <p class=" title is-6 has-text-grey-darke">Record and send message:</p>
                 </div>
+                <button id="record-btn" class="button is-primary">Record</button>
+                <button class="button is-warning" onclick='sendIntercomMessage("recording")' id="sendButton" disabled>Send message</button>
               </div>
             </div>  
           </div>
         </div>
       </div>
-     <!--end of columns div was here-->
 </body>
 </html>

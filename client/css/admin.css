@@ -101,6 +101,12 @@ nav.navbar {
     color: #fff;
 }
 
+#powerButton {
+  margin-right: .5em;
+  font-size: 1em;
+}
+
+
 /*mobile view*/
 .navbar-menu {
     display: none;
@@ -133,7 +139,7 @@ nav.navbar {
           font-weight: 400;
       }
       .slider {
-          width: 77%;
+          width: 65%;
       }
       .show-when-mobile {
         display: block;

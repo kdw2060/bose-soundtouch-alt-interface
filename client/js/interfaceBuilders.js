@@ -10,7 +10,7 @@ function buildTiles(){
 function buildRadioList(){
         var html= "";
         for (i=0; i<options.radioFavourites.length; i++) {
-            html += "<tr><td width='5%'><i class='fa fa-play-circle'></i></td><td>" + options.radioFavourites[i].channelName + "</td><td><a class='button is-small is-primary' onclick='setChannel(" + options.radioFavourites[i].locationcode +  ")'>Play</a></td></tr>";
+            html += "<tr><td width='5%'><i class='mdi mdi-radio'></i></td><td>" + options.radioFavourites[i].channelName + "</td><td><a class='button is-small is-primary' onclick='setChannel(" + options.radioFavourites[i].favID +  ")'>Play&nbsp;<i class='mdi mdi-play'></i></a></td></tr>";
         }
         $('#favRadios').html(html);
     }
@@ -18,7 +18,7 @@ function buildRadioList(){
 function buildMessagesList(){
         var html= "";
         for (i=0; i<options.intercomMessages.length; i++) {
-            html += "<tr><td width='5%'><i class='fa fa-comment-o'></i></td><td>" + options.intercomMessages[i].messageName + "</td><td><a class='button is-small is-primary' onclick='sendIntercomMessage(&#39;" + options.intercomMessages[i].url + "&#39;)'>Play</a></td></tr>";
+            html += "<tr><td width='5%'><i class='mdi mdi-message'></i></td><td>" + options.intercomMessages[i].messageName + "</td><td><a class='button is-small is-primary' onclick='sendIntercomMessage(&#39;" + options.intercomMessages[i].url + "&#39;)'>Send</a></td></tr>";
         }
         $('#messageList').html(html);
     }

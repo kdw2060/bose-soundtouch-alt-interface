@@ -2,30 +2,11 @@
 var speakers;
 var selectedSpeaker;
 var selectedSpeakerIP;
-var APIkey = ''; //enter your app API key from developer.bose.com
+var selectedSpeakerSource;
 var options;
 
 //Interface-related functions moved to seperate js files
 
-//Event listeners
-var volumecontroll = document.getElementById("volslider");
-volumecontroll.addEventListener('mouseup', function(){
-        var volume = this.value;
-        setVolume(volume);
-        setTimeout(getInfo, 1000);
-});
-volumecontroll.addEventListener('touchend', function(){
-        var volume = this.value;
-        setVolume(volume);
-        setTimeout(getInfo, 1000);
-});
-var burger = document.getElementById('burger');
-burger.addEventListener('click', function(){
-            var target = burger.dataset.target;
-            var $target = document.getElementById(target);
-            burger.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-});
 
 $(document).ready(function() {
     var hostname = window.location.hostname;
@@ -33,7 +14,7 @@ $(document).ready(function() {
     $.getJSON("http://" + hostname + ":3001/api/devices", function(data) {
         speakers = data;
             if (data != "" ) {
-                getSelectedSpeakerIP();
+                setSelectedSpeakerIP();
                 getInfo();
                 buildTiles();
                 buildBurgerMenu();
@@ -48,7 +29,7 @@ $(document).ready(function() {
             } else {
                 alert("The speaker discovery service cannot be reached.");
             }
-        });;
+        });
     //fill radiochannel and intercom arrays
     $.getJSON("http://" + hostname + ":3001/api/options", function(data) {
         options = data;
@@ -65,9 +46,36 @@ $(document).ready(function() {
             } else {
                 alert("The addon options file could not be read.");
             }
-        });;
+        });
     //autoset speaker to last selected
     if (localStorage.lastSelectedSpeaker) {
         selectedSpeaker = localStorage.getItem('lastSelectedSpeaker');
         }
+    
+    //Event listeners
+    var volumecontroll = document.getElementById("volslider");
+    volumecontroll.addEventListener('mouseup', function(){
+            var volume = this.value;
+            //console.log('volume set to: ' + volume);
+            setVolume(volume);
+            setTimeout(getInfo, 500);
+    });
+    volumecontroll.addEventListener('touchend', function(){
+            var volume = this.value;
+            setVolume(volume);
+            setTimeout(getInfo, 500);
+    });
+    var burger = document.getElementById('burger');
+    burger.addEventListener('click', function(){
+                //console.log('burger clicked');
+                var target = burger.dataset.target;
+                var $target = document.getElementById(target);
+                burger.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+    });    
+   var powerBtn = document.getElementById("powerButton");
+   powerBtn.addEventListener('mouseup', function(){
+        powerButton();
+   });
 });
+
