@@ -15,7 +15,7 @@ Since starting this project Bose has updated its app and now also supports savin
 1. Download this project
 2. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
-    - enter your key on line 5 in `scripts.js` inside the client\js folder
+    - enter your key on line 78 in `server.js`
     
 **install on a local nodeJS webserver**
 
