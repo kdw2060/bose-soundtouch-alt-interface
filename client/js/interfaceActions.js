@@ -87,10 +87,12 @@ function getInfo() {
           var currentVolume = data[2];
           $('.currentVolume').html('Volume: <span class="nowPlaying">' + currentVolume + '</span>');
           $(".slider").val(currentVolume);
+          $('#powerButton').html("<span class='icon has-text-danger'><i class='mdi mdi-power'></i></span>&nbsp;OFF");
         }
         else {
           $('.currentVolume').hide();
           $(".slider").hide();
+          $('#powerButton').html("<span class='icon has-text-danger'><i class='mdi mdi-power'></i></span>&nbsp;ON");
         }
     })
     .catch(function (jqXHR, textStatus, errorThrown){

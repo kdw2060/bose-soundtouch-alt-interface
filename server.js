@@ -24,8 +24,14 @@ if (HassEnv === false) {
 // get Device ip for later in Intercom function
 let deviceIP;
 var os = require('os');
-let ethernet = os.networkInterfaces().Ethernet.length;
-deviceIP = os.networkInterfaces().Ethernet[ethernet - 1].address;
+if (os.networkInterfaces().eth0) {
+    deviceIP = os.networkInterfaces().eth0[0].address;
+}
+else {
+    let ethernet = os.networkInterfaces().Ethernet.length;
+    deviceIP = os.networkInterfaces().Ethernet[ethernet - 1].address;
+}
+console.log(deviceIP);
 
 //array of my speakers
 var speakers = [];
@@ -142,12 +148,12 @@ app.post('/api/switchOnOff', function (req, res, next){
     };
     rp(options)
      .then(function(body) {
-        console.log('ON press fired');
+        console.log('powerbutton press fired');
     })
      .then(function(body) {
         rp(options2)
         .then(function(body) {
-            console.log('ON release fired');
+            console.log('powerbutton release fired');
             res.sendStatus(200);
         });
     })
