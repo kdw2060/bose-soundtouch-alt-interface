@@ -7,7 +7,7 @@ This web-app doesn't feature all SoundTouch functions, I just wanted to build so
 - the ability to store more than 6 radio presets* 
 - the ability to use the speakers as an intercom
 
-_* Since starting this project Bose has updated its app and now also supports saving more radio favourites, but it takes more time to access and use that function than in my small one page app._
+_* Since starting this project Bose has updated its app and now also supports saving more radio favourites, but it takes more time to access and use that function there than in my small one page app._
 
 
 ## Installation and configuration
@@ -15,7 +15,7 @@ _* Since starting this project Bose has updated its app and now also supports sa
 1. Download this project
 2. Only if you want to use the intercom functionality: 
     - get a developer API key from http://developer.bose.com
-    - enter your key on line 78 in `server.js`
+    - enter your key on line 84 in `server.js`
     
 **install on a local nodeJS webserver**
 
