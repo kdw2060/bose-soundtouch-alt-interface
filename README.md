@@ -24,7 +24,7 @@ _* Since starting this project Bose has updated its app and now also supports sa
 5. Set the variable `HassEnv` to false on line 22 of `server.js`
 6. Edit `options.json` inside the client\js folder to edit the list of your preferred radio channels and intercom messages. As Bose has moved away from vtuner to either TuneIn or Radioplayer you can no longer just set a station number but have to set a complete `<ContentItem>` object. To get this object you need to use the `/nowplaying` API function after having selected the station through the official Bose Soundtouch app. See [api-reference](https://developer.bose.com/guides/bose-soundtouch-api/bose-soundtouch-api-reference). I suggest you use a tool like the excellent [Postman](https://www.getpostman.com/) to execute the ``/nowplaying`` call.
 7. Install with `npm install` from the node console
-8. Run `node server.js` and point your client device browser to *https*://yourserverip:3001. You'll get some warnings about the https certificate not being trusted, just ignore/trust the site.
+8. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. You'll get some warnings about the https certificate not being trusted, just ignore/trust the site.
 
 **OR install on Hass.io**
 
