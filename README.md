@@ -30,12 +30,13 @@ _* Since starting this project Bose has updated its app and now also supports sa
 
 > WARNING : the app will probably not work anymore on Hass.io now that it was adapted to run over https (which is necessary for the soundrecording to work). I haven't tested it. Might have a look in the future, but won't be treating it as a high priority
 
-5. Copy all project files to a folder within the Hass.io addon folder ([see intro of this tutorial](https://home-assistant.io/developers/hassio/addon_tutorial/))
-6. Navigate to the Hass.io store and hit refresh
-7. Click on the 'MyBoseApp' addon and hit install
-8. Use the options-panel to define your personal list of preferred radio channels and intercom messages. As Bose has moved away from vtuner to either TuneIn or Radioplayer you can no longer just set a station number but have to set a complete `<ContentItem>` object. To get this object you need to use the `/nowplaying` API function after having selected the station through the official Bose Soundtouch app. See [api-reference](https://developer.bose.com/guides/bose-soundtouch-api/bose-soundtouch-api-reference). I suggest you use a tool like the excellent [Postman](https://www.getpostman.com/) to execute the ``/nowplaying`` call.
-9. When installation has finished hit start and wait a minute or so (at least on a raspberry pi)
-10. Click the 'open web ui' button
+5. Set the variable `HassEnv` to true on line 22 of `server.js`
+6. Copy all project files to a folder within the Hass.io addon folder ([see intro of this tutorial](https://home-assistant.io/developers/hassio/addon_tutorial/))
+7. Navigate to the Hass.io store and hit refresh
+8. Click on the 'MyBoseApp' addon and hit install
+9. Use the options-panel to define your personal list of preferred radio channels and intercom messages. As Bose has moved away from vtuner to either TuneIn or Radioplayer you can no longer just set a station number but have to set a complete `<ContentItem>` object. To get this object you need to use the `/nowplaying` API function after having selected the station through the official Bose Soundtouch app. See [api-reference](https://developer.bose.com/guides/bose-soundtouch-api/bose-soundtouch-api-reference). I suggest you use a tool like the excellent [Postman](https://www.getpostman.com/) to execute the ``/nowplaying`` call.
+10. When installation has finished hit start and wait a minute or so (at least on a raspberry pi)
+11. Click the 'open web ui' button
 
 ## Still to come
 
