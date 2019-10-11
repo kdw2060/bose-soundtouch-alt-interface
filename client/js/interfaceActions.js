@@ -76,7 +76,7 @@ const sendbutton = document.getElementById('sendButton');
 
 function getInfo() {
     var hostname = window.location.hostname;
-    $.getJSON("http://" + hostname + ":3001/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
+    $.getJSON("https://" + hostname + ":3001/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
         selectedSpeakerSource = data[0];
         $('.currentVolume').show();
         $(".slider").show();
@@ -111,7 +111,7 @@ function getInfo() {
 function powerButton() {
   var hostname = window.location.hostname;
   $.ajax({
-      url: "http://" + hostname + ":3001/api/switchOnOff?ip=" + selectedSpeakerIP,
+      url: "https://" + hostname + ":3001/api/switchOnOff?ip=" + selectedSpeakerIP,
       type: 'POST',
       crossDomain: true,
       success: function(result){
@@ -128,7 +128,7 @@ function powerButton() {
 function setVolume(val) {
     var hostname = window.location.hostname;
     $.ajax({
-        url: "http://" + hostname + ":3001/api/setVolume?ip=" + selectedSpeakerIP + "&vol=" + val,
+        url: "https://" + hostname + ":3001/api/setVolume?ip=" + selectedSpeakerIP + "&vol=" + val,
         type: 'POST',
         crossDomain: true,
         success: function(result){
@@ -144,16 +144,13 @@ function setVolume(val) {
 
 function setChannel(favorite) {
     var hostname = window.location.hostname;
-    if (selectedSpeakerSource === 'STANDBY') {
-      powerON();
-    }
     $.ajax({
-        url: "http://" + hostname + ":3001/api/setChannel?ip=" + selectedSpeakerIP + "&fav=" + favorite,
+        url: "https://" + hostname + ":3001/api/setChannel?ip=" + selectedSpeakerIP + "&fav=" + favorite,
         type: 'POST',
         crossDomain: true,
         success: function(result){
             //console.log('setChannel function fired');
-            setTimeout(getInfo, 500);
+            setTimeout(getInfo, 1000);
         },
         error: function(jqXHR, transStatus, errorThrown) {
           alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
@@ -165,7 +162,7 @@ function setChannel(favorite) {
 function sendIntercomMessage(url) {
     var hostname = window.location.hostname;
     $.ajax({
-        url: "http://" + hostname + ":3001/api/sendMessage?ip=" + selectedSpeakerIP + "&url=" + url,
+        url: "https://" + hostname + ":3001/api/sendMessage?ip=" + selectedSpeakerIP + "&url=" + url,
         type: 'POST',
         crossDomain: true,
         success: function(result){

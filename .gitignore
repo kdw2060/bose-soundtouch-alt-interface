@@ -9,3 +9,5 @@ client/upload/song.mp3
 client/upload/message.mp3
 postPayloadsSetChannel.txt
 client/js/devices.json
+server.key
+server.cert

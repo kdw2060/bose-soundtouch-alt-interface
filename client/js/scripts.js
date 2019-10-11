@@ -11,7 +11,7 @@ var options;
 $(document).ready(function() {
     var hostname = window.location.hostname;
     //fill speaker array
-    $.getJSON("http://" + hostname + ":3001/api/devices", function(data) {
+    $.getJSON("https://" + hostname + ":3001/api/devices", function(data) {
         speakers = data;
             if (data != "" ) {
                 setSelectedSpeakerIP();
@@ -31,7 +31,7 @@ $(document).ready(function() {
             }
         });
     //fill radiochannel and intercom arrays
-    $.getJSON("http://" + hostname + ":3001/api/options", function(data) {
+    $.getJSON("https://" + hostname + ":3001/api/options", function(data) {
         options = data;
             if (data != "" ) {
                 buildRadioList();

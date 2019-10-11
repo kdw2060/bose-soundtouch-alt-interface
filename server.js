@@ -1,13 +1,21 @@
 //some basic stuff
 const express = require('express');
-const bodyparser = require('body-parser');
-const request = require('request');
+//const bodyparser = require('body-parser');
+//const request = require('request');
 const rp = require('request-promise');
 const parseString = require('xml2js').parseString;
 const multer = require('multer');
 const upload = multer();
 const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey  = fs.readFileSync('server.key', 'utf8');
+const certificate = fs.readFileSync('server.cert', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
+
 const app = express();
+http.createServer(app).listen(3002);
+https.createServer(credentials, app).listen(3001);
 app.use(express.static('client'));
 
 //If you don't use Hass.io set HassEnv to false
@@ -127,7 +135,7 @@ app.get('/api/getInfo', function (req, res, next) {
             })
             .catch(function (err){
                 console.log('error: ' + err);
-                console.log('info3: ' + speakerInfo);
+                //console.log('info3: ' + speakerInfo);
                 res.status(500).json(speakerInfo);
             });   
 });
@@ -209,7 +217,7 @@ app.post('/api/setChannel', function (req, res, next){
 app.post('/api/sendMessage', function (req, res, next){
     let selectedSpeakerIP = req.query.ip;
     let message = req.query.url;
-    if (message === 'recording') { message = "http://" + deviceIP + ":3001/upload/message.mp3"; }
+    if (message === 'recording') { message = "http://" + deviceIP + ":3002/upload/message.mp3"; }
     var postData = "<play_info><app_key>" + APIkey + "</app_key><url>" + message + "</url><service>Intercom</service><volume>45</volume></play_info>";
     var options = {
         method: 'POST',
@@ -232,5 +240,3 @@ app.post('/api/upload', upload.single('soundBlob'), function (req, res, next){
     fs.writeFileSync(uploadLocation, Buffer.from(new Uint8Array(req.file.buffer)));
     res.sendStatus(200);
 })
-
-app.listen(3001);
