@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bose Soundtouch Interface - by @kdw2060</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bose Soundtouch Interface - by @kdw2060</title>
     <link rel="stylesheet" href="css/materialdesignicons.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/micRecorder.js"></script>
     <script src="js/slider.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
@@ -16,133 +16,112 @@
     <link rel="stylesheet" href="css/bulma.min.css" />
     <link rel="stylesheet" href="css/bulma-slider.min.css" />
     <link rel="stylesheet" href="css/bulma-tooltip.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/admin.css">
-    <link rel="stylesheet" type="text/css" href="css/bulma-divider.min.css">
-</head>
-<body>
-
-  <!-- START NAV -->
-  <nav class="navbar is-white">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item brand-text" href="index.html">
-            <img src="img/bose_logo.png"/>@kdw2060's SoundTouch app
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="css/bulma-divider.min.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="My SoundTouch App" />
+    <meta name="description" content="An alternative Bose SoundTouch app" />
+    <link rel="apple-touch-icon" href="/img/bose_logo.png" />
+    <meta name="theme-color" content="#00d1b2" />
+  </head>
+  <body>
+    <!-- START NAV -->
+    <nav class="navbar is-white">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item brand-text" href="index.html">
+            <img src="img/bose_logo.png" />@kdw2060's SoundTouch app
           </a>
-        <button class="button navbar-burger" data-target="navMenu" id="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+          <button class="button navbar-burger" data-target="navMenu" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
         <div class="navbar-menu" id="navMenu">
-            <p class="menu-label">Select a speaker</p>
-            <ul class="menu-list">
-                <!--
+          <p class="menu-label">Select a speaker</p>
+          <ul class="menu-list">
+            <!--
                 this list will be built dynamically upon discovery of the speakers
                 -->
-             </ul>
-        </div>
-    </div>
-  </nav>
-  <!-- END NAV -->
-  <div class="container">
-    <div class="columns">
-<!--
-<div class="column is-3 hide-when-mobile">
-        <aside class="menu tooltip is-tooltip-top" data-tooltip="This menu doesn't work for now">
-          <p class="menu-label">
-            Rooms
-          </p>
-          <ul class="menu-list">
-            <li ><a class="is-active">All speakers</a></li>
-//Room selection not in use for the moment, might develop in the future.
-            <li><a>Kitchen</a></li>
-            <li><a>Bathroom</a></li>
-            <li><a>Marieke's room</a></li>
-            <li><a>Kris's room</a></li>
-            <li>
-              <a>Living room</a>
-              <ul>
-                <li>Front window</li>
-                <li>Back window</li>
-              </ul>
-            </li>
           </ul>
-//User selection not in use for the moment, might develop in the future.
-          <p class="menu-label">
-            Users
-          </p>
-          <ul class="menu-list">
-            <li><a>User 1</a></li>
-            <li><a>User 2</a></li>
-          </ul>
-        </aside>
-      </div> 
--->
-      <div class="column is-9-desktop">
-        <section class="info-tiles hide-when-mobile">
-         <label class="label">Select a speaker</label>
-          <div class="tile is-ancestor has-text-centered" id="targetForTiles">
-            <!--
-            these tiles will be built dynamically upon discovery of the speakers
-            -->
-          </div>
-        </section>
-        <section class="card currentlyPlaying">
-                <span class="currentSpeaker"></span>
-                <a class="button is-rounded is-pulled-right" id="powerButton"><span class="icon has-text-danger"><i class="mdi mdi-power"></i></span>&nbsp;OFF</a>
-                <span class="currentChannel is-block"></span>
-                <div>
-                  <span class="currentVolume"></span><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider">
-                </div>
-        </section>
         </div>
       </div>
-        <div class="columns">
-          <div class="column is-5 radiochannels">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title has-text-black-ter">Radio channels</p>
-              </header>
+    </nav>
+    <!-- END NAV -->
+    <div class="container">
+      <div class="columns">
+        <div class="column is-9-desktop">
+          <section class="info-tiles hide-when-mobile">
+            <label class="label">Select a speaker</label>
+            <div class="tile is-ancestor has-text-centered" id="targetForTiles">
+              <!--
+            these tiles will be built dynamically upon discovery of the speakers
+            --></div>
+          </section>
+          <section class="card currentlyPlaying">
+            <span class="currentSpeaker"></span>
+            <a class="button is-rounded is-pulled-right" id="powerButton"
+              ><span class="icon has-text-danger"><i class="mdi mdi-power"></i></span>&nbsp;OFF</a
+            >
+            <div class="is-block">
+              <span class="currentChannel"></span
+              ><a href="#" class="icon"><i id="favButton" class="mdi mdi-heart-outline has-text-danger"></i></a>
+            </div>
+            <div>
+              <span class="currentVolume"></span
+              ><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider" />
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-5 radiochannels">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title has-text-black-ter">Radio channels</p>
+            </header>
             <div class="card-content">
               <div class="card-table channelList">
                 <div class="content">
                   <table class="table is-fullwidth is-striped">
-                    <tbody id="favRadios">
-                    </tbody>
+                    <tbody id="favRadios"></tbody>
                   </table>
                 </div>
               </div>
             </div>
-              <footer class="card-footer">
-                <a href="#" class="card-footer-item" onclick="showAllChannels()">View All</a>
-              </footer>
-            </div>        
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item" onclick="showAllChannels()">View All</a>
+            </footer>
           </div>
-          <div class="column is-4 intercom">
-            <div class="card events-card">
-              <header class="card-header">
-                <p class="card-header-title has-text-black-ter">Intercom messages</p>
-                <a href="#" class="card-header-icon" aria-label="more options"></a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                    <p class=" title is-6 has-text-grey-darke">Send preset message:</p>
-                    <div class="card-table">
-                        <table class="table is-fullwidth is-striped">
-                        <tbody id="messageList">
-                        </tbody>
-                        </table>
-                    </div>
-                    <div class="is-divider" data-content="OR"></div>
-                    <p class=" title is-6 has-text-grey-darke">Record and send message:</p>
+        </div>
+        <div class="column is-4 intercom">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title has-text-black-ter">Intercom messages</p>
+              <a href="#" class="card-header-icon" aria-label="more options"></a>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <p class=" title is-6 has-text-grey-darke">Send preset message:</p>
+                <div class="card-table">
+                  <table class="table is-fullwidth is-striped">
+                    <tbody id="messageList"></tbody>
+                  </table>
                 </div>
-                <button id="record-btn" class="button is-primary">Record</button>
-                <button class="button is-warning" onclick='sendIntercomMessage("recording")' id="sendButton" disabled>Send message</button>
+                <div class="is-divider" data-content="OR"></div>
+                <p class=" title is-6 has-text-grey-darke">Record and send message:</p>
               </div>
-            </div>  
+              <button id="record-btn" class="button is-primary">Record</button>
+              <button class="button is-warning" onclick='sendIntercomMessage("recording")' id="sendButton" disabled>
+                Send message
+              </button>
+            </div>
           </div>
         </div>
       </div>
-</body>
+    </div>
+  </body>
 </html>

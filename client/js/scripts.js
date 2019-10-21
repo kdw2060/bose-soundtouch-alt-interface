@@ -3,6 +3,7 @@ var speakers;
 var selectedSpeaker;
 var selectedSpeakerIP;
 var selectedSpeakerSource;
+var channelName;
 var options;
 
 //Interface-related functions moved to seperate js files
@@ -76,6 +77,10 @@ $(document).ready(function() {
    var powerBtn = document.getElementById("powerButton");
    powerBtn.addEventListener('mouseup', function(){
         powerButton();
+   });
+   var favBtn = document.getElementById("favButton");
+   favBtn.addEventListener('mouseup', function(){
+        setFavourite();
    });
 });
 

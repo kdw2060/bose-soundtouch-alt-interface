@@ -24,8 +24,6 @@ function showAllChannels() {
 }
 
 
-// message recorder
-//window.onload = function(){
 $(document).ready(function() {
 const recordbutton = document.getElementById('record-btn');
 const sendbutton = document.getElementById('sendButton');
@@ -76,14 +74,23 @@ const sendbutton = document.getElementById('sendButton');
 
 function getInfo() {
     var hostname = window.location.hostname;
+    $('#favButton').removeClass('mdi-heart');
+    $('#favButton').addClass('mdi-heart-outline');
     $.getJSON("https://" + hostname + ":3001/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
+      console.log(data);
         selectedSpeakerSource = data[0];
         $('.currentVolume').show();
         $(".slider").show();
         $(".currentSpeaker").html('Selected speaker: <span class="selectedSpeaker">' + selectedSpeaker + '</span>');
-        var channelName = data[1];
+        channelName = data[1];
         $('.currentChannel').html('Now playing: <span class="nowPlaying tag is-info">' + channelName + '</span>');
         if (selectedSpeakerSource !== 'STANDBY') {
+          for (var i = 0; i < options.radioFavourites.length; i++){
+            if (options.radioFavourites[i].channelName === channelName) {
+              $('#favButton').removeClass('mdi-heart-outline');
+              $('#favButton').addClass('mdi-heart');
+            }
+         }          
           var currentVolume = data[2];
           $('.currentVolume').html('Volume: <span class="nowPlaying">' + currentVolume + '</span>');
           $(".slider").val(currentVolume);
@@ -150,7 +157,7 @@ function setChannel(favorite) {
         crossDomain: true,
         success: function(result){
             //console.log('setChannel function fired');
-            setTimeout(getInfo, 1000);
+            setTimeout(getInfo, 1750);
         },
         error: function(jqXHR, transStatus, errorThrown) {
           alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
@@ -172,6 +179,48 @@ function sendIntercomMessage(url) {
           alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
         }
     }); 
+}
+
+function setFavourite() {
+  getInfo();
+  let hostname = window.location.hostname;
+  let unfaved = false;
+  if (selectedSpeakerSource !== 'STANDBY') {
+    for (var i = 0; i < options.radioFavourites.length; i++){
+      if (options.radioFavourites[i].channelName === channelName) {
+        console.log('unset fav function started');
+        unfaved = true;
+        let favId = i;
+        $.ajax({
+          url: "https://" + hostname + ":3001/api/unsetFavourite?favId=" + favId,
+          type: 'POST',
+          crossDomain: true,
+          success: function(result){
+            console.log("unsetfav fired");
+            location.reload();
+          },
+          error: function(jqXHR, transStatus, errorThrown) {
+            alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
+          }
+        });
+      }
+    }
+    if (unfaved === false ) {
+      console.log('set fav function started');
+      $.ajax({
+        url: "https://" + hostname + ":3001/api/setFavourite",
+        type: 'POST',
+        crossDomain: true,
+        success: function(result){
+          console.log("setfav fired");
+          location.reload();
+        },
+        error: function(jqXHR, transStatus, errorThrown) {
+        alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
+        }
+      }); 
+    }
+  }
 }
 
 

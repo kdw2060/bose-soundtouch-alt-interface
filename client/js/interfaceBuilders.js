@@ -13,6 +13,7 @@ function buildRadioList(){
             html += "<tr><td width='5%'><i class='mdi mdi-radio'></i></td><td>" + options.radioFavourites[i].channelName + "</td><td><a class='button is-small is-primary' onclick='setChannel(" + options.radioFavourites[i].favID +  ")'>Play&nbsp;<i class='mdi mdi-play'></i></a></td></tr>";
         }
         $('#favRadios').html(html);
+        console.log('radio favlist built');
     }
 
 function buildMessagesList(){
