@@ -5,14 +5,18 @@ var selectedSpeakerIP;
 var selectedSpeakerSource;
 var channelName;
 var options;
+var protocol;
+var port;
 
 //Interface-related functions moved to seperate js files
 
 
 $(document).ready(function() {
+    protocol = window.location.protocol;
+    if (protocol === "http:") {port = 3002;} else {port = 3001; };
     var hostname = window.location.hostname;
     //fill speaker array
-    $.getJSON("https://" + hostname + ":3001/api/devices", function(data) {
+    $.getJSON(protocol + "//" + hostname + ":" + port + "/api/devices", function(data) {
         speakers = data;
             if (data != "" ) {
                 setSelectedSpeakerIP();
@@ -32,7 +36,7 @@ $(document).ready(function() {
             }
         });
     //fill radiochannel and intercom arrays
-    $.getJSON("https://" + hostname + ":3001/api/options", function(data) {
+    $.getJSON(protocol + "//" + hostname + ":" + port + "/api/options", function(data) {
         options = data;
             if (data != "" ) {
                 buildRadioList();

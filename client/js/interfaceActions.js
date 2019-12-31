@@ -76,7 +76,7 @@ function getInfo() {
     var hostname = window.location.hostname;
     $('#favButton').removeClass('mdi-heart');
     $('#favButton').addClass('mdi-heart-outline');
-    $.getJSON("https://" + hostname + ":3001/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
+    $.getJSON(protocol + "//" + hostname + ":" + port + "/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
       console.log(data);
         selectedSpeakerSource = data[0];
         $('.currentVolume').show();
@@ -118,7 +118,7 @@ function getInfo() {
 function powerButton() {
   var hostname = window.location.hostname;
   $.ajax({
-      url: "https://" + hostname + ":3001/api/switchOnOff?ip=" + selectedSpeakerIP,
+      url: protocol + "//" + hostname + ":" + port + "/api/switchOnOff?ip=" + selectedSpeakerIP,
       type: 'POST',
       crossDomain: true,
       success: function(result){
@@ -135,7 +135,7 @@ function powerButton() {
 function setVolume(val) {
     var hostname = window.location.hostname;
     $.ajax({
-        url: "https://" + hostname + ":3001/api/setVolume?ip=" + selectedSpeakerIP + "&vol=" + val,
+        url: protocol + "//" + hostname + ":" + port + "/api/setVolume?ip=" + selectedSpeakerIP + "&vol=" + val,
         type: 'POST',
         crossDomain: true,
         success: function(result){
@@ -152,7 +152,7 @@ function setVolume(val) {
 function setChannel(favorite) {
     var hostname = window.location.hostname;
     $.ajax({
-        url: "https://" + hostname + ":3001/api/setChannel?ip=" + selectedSpeakerIP + "&fav=" + favorite,
+        url: protocol + "//" + hostname + ":" + port + "/api/setChannel?ip=" + selectedSpeakerIP + "&fav=" + favorite,
         type: 'POST',
         crossDomain: true,
         success: function(result){
@@ -169,7 +169,7 @@ function setChannel(favorite) {
 function sendIntercomMessage(url) {
     var hostname = window.location.hostname;
     $.ajax({
-        url: "https://" + hostname + ":3001/api/sendMessage?ip=" + selectedSpeakerIP + "&url=" + url,
+        url: protocol + "//" + hostname + ":" + port + "/api/sendMessage?ip=" + selectedSpeakerIP + "&url=" + url,
         type: 'POST',
         crossDomain: true,
         success: function(result){
@@ -192,7 +192,7 @@ function setFavourite() {
         unfaved = true;
         let favId = i;
         $.ajax({
-          url: "https://" + hostname + ":3001/api/unsetFavourite?favId=" + favId,
+          url: protocol + "//" + hostname + ":" + port + "/api/unsetFavourite?favId=" + favId,
           type: 'POST',
           crossDomain: true,
           success: function(result){
@@ -208,7 +208,7 @@ function setFavourite() {
     if (unfaved === false ) {
       console.log('set fav function started');
       $.ajax({
-        url: "https://" + hostname + ":3001/api/setFavourite",
+        url: protocol + "//" + hostname + ":" + port + "/api/setFavourite",
         type: 'POST',
         crossDomain: true,
         success: function(result){
