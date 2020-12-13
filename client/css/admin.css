@@ -117,7 +117,7 @@ nav.navbar {
   and (orientation: portrait) {
 
       .slider {
-          width: 65%;
+          width: 45%;
       }
       .columns {
           margin-left: .1em;

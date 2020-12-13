@@ -79,6 +79,8 @@ function getInfo() {
         selectedSpeakerSource = data[0];
         $('.currentVolume').show();
         $(".slider").show();
+        $('.volmin').show();
+        $('.volplus').show();
         $(".currentSpeaker").html('Selected speaker: <span class="selectedSpeaker">' + selectedSpeaker + '</span>');
         if (data.length == 3) {channelName = data[1];}
         if (data.length == 2) {channelName = data[0];}
@@ -112,6 +114,8 @@ function getInfo() {
           $('.currentChannel').html('<span class="nowPlaying tag is-danger">' + channelName + '</span>');
           $('.currentVolume').hide();
           $(".slider").hide();
+          $('.volmin').hide();
+          $('.volplus').hide();
         }
         
     })
