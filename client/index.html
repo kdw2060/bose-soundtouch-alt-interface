@@ -27,52 +27,42 @@
     <meta name="theme-color" content="#00d1b2" />
   </head>
   <body>
-    <!-- START NAV -->
+    <!-- Header -->
     <nav class="navbar is-white">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item brand-text" href="index.html">
             <img src="img/bose_logo.png" />@kdw2060's SoundTouch app
           </a>
-          <button class="button navbar-burger" data-target="navMenu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        <div class="navbar-menu" id="navMenu">
-          <p class="menu-label">Select a speaker</p>
-          <ul class="menu-list">
-            <!--
-                this list will be built dynamically upon discovery of the speakers
-                -->
-          </ul>
         </div>
       </div>
     </nav>
-    <!-- END NAV -->
+    <!-- END Header -->
     <div class="container">
       <div class="columns">
         <div class="column is-9-desktop">
           <section class="info-tiles hide-when-mobile">
             <label class="label">Select a speaker</label>
-            <div class="tile is-ancestor has-text-centered" id="targetForTiles">
-              <!--
-            these tiles will be built dynamically upon discovery of the speakers
-            --></div>
+            <div class="tabs is-toggle has-text-centered is-fullwidth">
+              <ul id="targetForToggle">
+              <!-- to be built dynamically upon discovery of the speakers -->
+              </ul>
+            </div>
           </section>
           <section class="card currentlyPlaying">
             <span class="currentSpeaker"></span>
             <a class="button is-rounded is-pulled-right" id="powerButton"
               ><span class="icon has-text-danger"><i class="mdi mdi-power"></i></span>&nbsp;OFF</a
             >
-            <div class="is-block">
+            <div class="is-block channel">
               <span class="currentChannel"></span
               ><a href="#" class="icon"><i id="favButton" class="mdi mdi-heart-outline has-text-danger"></i></a>
             </div>
             <div>
-              <span class="currentVolume"></span
-              ><input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider" />
+              <span class="currentVolume"></span>
+              <button class="button volmin" onclick="volDown()"><span class="icon is-small"><i class="mdi mdi-minus"></i></span></button>
+              <input class="slider is-info" step="1" min="0" max="100" value="" type="range" id="volslider" />
+              <button class="button volplus" onclick="volUp()"><span class="icon is-small"><i class="mdi mdi-plus"></i></span></button>
             </div>
           </section>
         </div>

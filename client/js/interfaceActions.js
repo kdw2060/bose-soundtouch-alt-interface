@@ -1,13 +1,10 @@
 function setSpeaker(speaker, el){
     selectedSpeaker = speaker;
     localStorage.setItem('lastSelectedSpeaker', speaker);
-    $("article").removeClass('clicked');
-    $(".menu-list li a").removeClass('clicked');
-    $(el).toggleClass('clicked');
+    $(".is-active").removeClass('is-active');
+    $(el).parent('li').addClass('is-active');
     setSelectedSpeakerIP();
     getInfo();
-    $('#navMenu').toggleClass('is-active');
-    burger.classList.toggle('is-active');
 }
 
 function setSelectedSpeakerIP() {
@@ -71,6 +68,7 @@ const sendbutton = document.getElementById('sendButton');
 });
 
 //Functions that use the Bose-API (had to be changed to go via the backend because of Cors-hell introduced by Bose)
+var currentVolume;
 
 function getInfo() {
     var hostname = window.location.hostname;
@@ -82,7 +80,8 @@ function getInfo() {
         $('.currentVolume').show();
         $(".slider").show();
         $(".currentSpeaker").html('Selected speaker: <span class="selectedSpeaker">' + selectedSpeaker + '</span>');
-        channelName = data[1];
+        if (data.length == 3) {channelName = data[1];}
+        if (data.length == 2) {channelName = data[0];}
         $('.currentChannel').html('Now playing: <span class="nowPlaying tag is-info">' + channelName + '</span>');
         if (selectedSpeakerSource !== 'STANDBY') {
           for (var i = 0; i < options.radioFavourites.length; i++){
@@ -91,7 +90,8 @@ function getInfo() {
               $('#favButton').addClass('mdi-heart');
             }
          }          
-          var currentVolume = data[2];
+        if (data.length == 3) {currentVolume = data[2];}
+        if (data.length == 2) {currentVolume = data[1];} 
           $('.currentVolume').html('Volume: <span class="nowPlaying">' + currentVolume + '</span>');
           $(".slider").val(currentVolume);
           $('#powerButton').html("<span class='icon has-text-danger'><i class='mdi mdi-power'></i></span>&nbsp;OFF");
@@ -99,6 +99,8 @@ function getInfo() {
         else {
           $('.currentVolume').hide();
           $(".slider").hide();
+          $('.volmin').hide();
+          $('.volplus').hide();
           $('#powerButton').html("<span class='icon has-text-danger'><i class='mdi mdi-power'></i></span>&nbsp;ON");
         }
     })
@@ -146,6 +148,18 @@ function setVolume(val) {
           alert('Status: ' + jqXHR.status + '=' + jqXHR.statusText + '.' + 'Response: ' + jqXHR.responseText);
         }
       });
+}
+
+function volUp() {
+  var volNow = parseInt(currentVolume);
+  var newVol = volNow + 1;
+  setVolume(newVol);
+}
+
+function volDown() {
+  var volNow = parseInt(currentVolume);
+  var newVol = volNow - 1;
+  setVolume(newVol);
 }
 
 

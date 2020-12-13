@@ -21,8 +21,7 @@ $(document).ready(function() {
             if (data != "" ) {
                 setSelectedSpeakerIP();
                 getInfo();
-                buildTiles();
-                buildBurgerMenu();
+                buildToggle();
             }
             if (data == ""){
                 alert('Your speakers could not be detected yet. Try to refresh the page in a minute.');
@@ -70,14 +69,6 @@ $(document).ready(function() {
             setVolume(volume);
             setTimeout(getInfo, 500);
     });
-    var burger = document.getElementById('burger');
-    burger.addEventListener('click', function(){
-                //console.log('burger clicked');
-                var target = burger.dataset.target;
-                var $target = document.getElementById(target);
-                burger.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-    });    
    var powerBtn = document.getElementById("powerButton");
    powerBtn.addEventListener('mouseup', function(){
         powerButton();
