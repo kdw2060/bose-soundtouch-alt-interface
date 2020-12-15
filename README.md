@@ -17,29 +17,20 @@ You need to have a computer with Node.js installed to run this webapp. I use a r
 2. Only if you want to use the intercom functionality:
    - get a developer API key from http://developer.bose.com
    - enter your key on line 100 in `server.js`
-3. Create yourself a `server.cert` and `server.key` fileset by following [this guide](https://flaviocopes.com/express-https-self-signed-certificate/)
+3. Create yourself a `localhost.crt` and `localhost.key` fileset by following [this guide](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8)
 4. Copy those files to the root folder of the project
-5. Install with `npm install` from the node console / your terminal
-6. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. You'll get some warnings about the https certificate not being trusted, just ignore/trust the site.
-7. On mobile devices: use the install to homescreen function of your browser to install the webapp as a progressive web app on your device.
+5. Follow [this guide](https://www.bounca.org/tutorials/install_root_certificate.html) to install the Root CA you created during step 3 as a trusted certificate.
+6. Install with `npm install` from the node console / your terminal
+7. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. If step 5 didn't succeed you'll get some warnings about the https certificate not being trusted. You can also choose to just ignore these warnings.
+8. On mobile devices: use the install to homescreen function of your browser to install the webapp as a progressive web app on your device.
 
-<details>
-  <summary>**LEGACY - installation on Hass.io**</summary>
-  
-  ## broken - usage as a Home Assistant addon
-  Earlier versions of this app also worked as an addon for Home Assistant. As I'm no longer using it that way anymore myself, I have stopped debugging the app to work like that.
-
-The necesarry code is still present in the project and can be used to build upon and fix the Hass.io compatibility. Feel free to do so and open a pull request.
-
-</details>
 
 ## Usage
 
 ### speaker selection
 
-Use the hamburger menu to select a speaker. Don't see any speakers? Try to refresh the app.
+Use the tabs at the top to select a speaker. Don't see any speakers? Try to refresh the app.
 
-![menu](https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/speaker_selection.png "Menu")
 
 ### controls
 
@@ -71,7 +62,7 @@ The message recorder should be self explainatory. When prompted you should of co
 
 Wanna help out with this project? Here are some To Do's:
 
-- clean up the code (properly use modern javascript, get rid of jQuery usage)
+- clean up the code (properly use modern javascript)
 - :white_check_mark: ~~make the client work as a progressive web app~~
 - :white_check_mark: ~~add the option to record a sound clip and send this over the intercom~~
 - :white_check_mark: ~~add error handling where missing~~
@@ -82,7 +73,7 @@ Wanna help out with this project? Here are some To Do's:
 
 Learn more about the Bose Soundtouch API @ https://developer.bose.com/soundtouch-control-api/apis
 
-I built the lay-out with Bulma css framework: https://bulma.io/
+I built the interface with Bulma css framework: https://bulma.io/
 
 This nice package made it easy to discover the speakers on the local network: https://github.com/watson/bonjour
 

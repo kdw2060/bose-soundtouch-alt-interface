@@ -75,7 +75,7 @@ function getInfo() {
     $('#favButton').removeClass('mdi-heart');
     $('#favButton').addClass('mdi-heart-outline');
     $.getJSON(protocol + "//" + hostname + ":" + port + "/api/getInfo?ip=" + selectedSpeakerIP, function(data) {
-      console.log(data);
+      // console.log(data);
         selectedSpeakerSource = data[0];
         $('.currentVolume').show();
         $(".slider").show();
@@ -206,7 +206,7 @@ function setFavourite() {
   if (selectedSpeakerSource !== 'STANDBY') {
     for (var i = 0; i < options.radioFavourites.length; i++){
       if (options.radioFavourites[i].channelName === channelName) {
-        console.log('unset fav function started');
+        // console.log('unset fav function started');
         unfaved = true;
         let favId = i;
         $.ajax({
@@ -214,7 +214,7 @@ function setFavourite() {
           type: 'POST',
           crossDomain: true,
           success: function(result){
-            console.log("unsetfav fired");
+            // console.log("unsetfav fired");
             location.reload();
           },
           error: function(jqXHR, transStatus, errorThrown) {

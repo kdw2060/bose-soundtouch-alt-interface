@@ -11,3 +11,11 @@ postPayloadsSetChannel.txt
 client/js/devices.json
 server.key
 server.cert
+localhost.crt
+domains.ext
+localhost.csr
+localhost.key
+RootCA.crt
+RootCA.key
+RootCA.pem
+RootCA.srl

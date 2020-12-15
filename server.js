@@ -8,8 +8,8 @@ const upload = multer();
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
-const privateKey = fs.readFileSync("server.key", "utf8");
-const certificate = fs.readFileSync("server.cert", "utf8");
+const privateKey = fs.readFileSync("localhost.key", "utf8");
+const certificate = fs.readFileSync("localhost.crt", "utf8");
 const credentials = { key: privateKey, cert: certificate };
 
 const app = express();
@@ -38,13 +38,19 @@ let ContentItem;
 // get Device ip for later in Intercom function
 let deviceIP;
 var os = require("os");
+// console.log(os.networkInterfaces());
 if (os.networkInterfaces().eth0) {
   deviceIP = os.networkInterfaces().eth0[0].address;
 }
 if (os.networkInterfaces()["Wi-Fi"]) {
   let wifi = os.networkInterfaces()["Wi-Fi"].length;
   deviceIP = os.networkInterfaces()["Wi-Fi"][wifi - 1].address;
-} else {
+} 
+if (os.networkInterfaces().enp3s0) {deviceIP = os.networkInterfaces().enp3s0[0].address;
+} 
+if (os.networkInterfaces().enp6s0) {deviceIP = os.networkInterfaces().enp6s0[0].address;
+}
+else {
   let ethernet = os.networkInterfaces().Ethernet.length;
   deviceIP = os.networkInterfaces().Ethernet[ethernet - 1].address;
 }
