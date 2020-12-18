@@ -11,6 +11,7 @@ _\* Since starting this project Bose has updated its app and now also supports s
 
 ## Installation
 
+### Method 1 - run NodeJS app locally
 You need to have a computer with Node.js installed to run this webapp. I use a raspberry pi with raspbian os and the pm2 tool to serve the app on my local network.
 
 1. Download this project
@@ -24,19 +25,18 @@ You need to have a computer with Node.js installed to run this webapp. I use a r
 7. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. If step 5 didn't succeed you'll get some warnings about the https certificate not being trusted. You can also choose to just ignore these warnings.
 8. On mobile devices: use the install to homescreen function of your browser to install the webapp as a progressive web app on your device.
 
+### Method 2 - install as Docker container
+
 
 ## Usage
 
-### speaker selection
+### controls
 
 Use the tabs at the top to select a speaker. Don't see any speakers? Try to refresh the app.
 
+In order to select a channel or use the volume controls the speaker needs to be powered on. You can power on the speaker from within the app.
 
-### controls
-
-In order to use the controls, the speaker needs to be powered on. You can power on the speaker from within the app.
-
-![menu](https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/speaker_controls.png "Menu")
+![menu](https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/controls.png "Menu")
 
 ### favourites management
 

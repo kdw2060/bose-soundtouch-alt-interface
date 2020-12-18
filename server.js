@@ -50,7 +50,7 @@ if (os.networkInterfaces().enp3s0) {deviceIP = os.networkInterfaces().enp3s0[0].
 } 
 if (os.networkInterfaces().enp6s0) {deviceIP = os.networkInterfaces().enp6s0[0].address;
 }
-else {
+if (os.networkInterfaces().Ethernet) {
   let ethernet = os.networkInterfaces().Ethernet.length;
   deviceIP = os.networkInterfaces().Ethernet[ethernet - 1].address;
 }
