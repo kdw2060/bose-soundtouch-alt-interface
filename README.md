@@ -11,22 +11,38 @@ _\* Since starting this project Bose has updated its app and now also supports s
 
 ## Installation
 
+Because accessing your microphone requires an interface served over https the installation methods require some fiddlesome work to make and install https certificates that you can use locally. You can skip steps 2-5 if you don't want to use the intercom function.
+
 ### Method 1 - run NodeJS app locally
-You need to have a computer with Node.js installed to run this webapp. I use a raspberry pi with raspbian os and the pm2 tool to serve the app on my local network.
+You need to have a computer with Node.js installed to run this webapp. E.g. I used a raspberry pi with raspbian os and the pm2 tool to serve the app on my local network.
 
 1. Download this project
-2. Only if you want to use the intercom functionality:
+2.
    - get a developer API key from http://developer.bose.com
-   - enter your key on line 100 in `server.js`
-3. Create yourself a `localhost.crt` and `localhost.key` fileset by following [this guide](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8)
+   - enter your key on line 106 in `server.js`
+3. Create yourself a `localhost.crt` and `localhost.key` fileset by following [this guide](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8). Make sure to specify your local alt_names as described there.
 4. Copy those files to the root folder of the project
 5. Follow [this guide](https://www.bounca.org/tutorials/install_root_certificate.html) to install the Root CA you created during step 3 as a trusted certificate.
 6. Install with `npm install` from the node console / your terminal
-7. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. If step 5 didn't succeed you'll get some warnings about the https certificate not being trusted. You can also choose to just ignore these warnings.
+7. Run `node server.js` and point your client device browser to **https**://yourserverip:3001. 
+_If step 5 didn't succeed you'll get some warnings about the https certificate not being trusted. You can also choose to just ignore these warnings._
+_If you don't want to use the intercom function, skip steps 2-5 and point your browser to **http**://yourserverip:**3002**_ 
 8. On mobile devices: use the install to homescreen function of your browser to install the webapp as a progressive web app on your device.
 
 ### Method 2 - install as Docker container
+Follow steps 1-5 of the first installation method.
 
+6. Build the docker image and run it from the cli or with portainer. I'm assuming some familiarity with Docker here. Make sure the image is allowed to use the host network. _[This screenshot](https://github.com/kdw2060/bose-soundtouch-alt-interface/raw/master/screenshots/Docker-settings.png) might help a bit._
+7. Start the container point your client device browser to **https**://yourserverip:3001. 
+
+### Method 3 - install as Home Assitant Addon
+A Home Assistant addon is also a Docker container, so you can install it that way too.
+
+Follow steps 1-5 of the first installation method.
+6. Copy all files to the Home Assitant local addon folder 
+7. Go to Supervisor > Addon Store > Refresh > The addon should show up under local addons
+8. Hit the install button
+9. Click the Start button, and when building has finished click the "Open Web UI" button
 
 ## Usage
 
