@@ -39,6 +39,7 @@ Follow steps 1-5 of the first installation method.
 A Home Assistant addon is also a Docker container, so you can install it that way too.
 
 Follow steps 1-5 of the first installation method.
+
 6. Copy all files to the Home Assitant local addon folder 
 7. Go to Supervisor > Addon Store > Refresh > The addon should show up under local addons
 8. Hit the install button
